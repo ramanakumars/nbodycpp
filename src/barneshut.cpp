@@ -13,7 +13,7 @@ void getAcceleration(std::vector<std::shared_ptr<Particle>> &particles, QuadTree
 vector2D force(const Particle *p1, const Particle *p2)
 {
     vector2D diff = p1->position - p2->position;
-    double dist = std::max(diff.norm(), 2 * p1->radius); // Prevents singularity
+    double dist = std::max(diff.norm(), p2->radius + p1->radius); // Prevents singularity
     double invDistCubed = 1.0 / (dist * dist * dist);
     double scale = -GRAV_G * p2->mass * invDistCubed;
 

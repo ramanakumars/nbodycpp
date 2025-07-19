@@ -6,44 +6,46 @@
 class Bounds
 {
 public:
-    double xmin, ymin, width, height;
+    double xmin, ymin, xmax, ymax, width, height;
 
     void set_bounds(double _xmin, double _ymin, double _width, double _height)
     {
-        this->xmin = _xmin;
-        this->ymin = _ymin;
-        this->width = _width;
-        this->height = _height;
+        xmin = _xmin;
+        ymin = _ymin;
+        xmax = _xmin + _width;
+        ymax = _ymin + _height;
+        width = _width;
+        height = _height;
     }
 
-    constexpr bool intersects(Bounds other)
-    {
-        return !(getLeft() > other.getRight() || getRight() < other.getLeft() || getTop() < other.getBottom() || getBottom() > other.getTop());
-    }
-
-    constexpr double getLeft()
+    constexpr double getLeft() const
     {
         return xmin;
     }
 
-    constexpr double getRight()
+    constexpr double getRight() const
     {
-        return xmin + width;
+        return xmax;
     }
 
-    constexpr double getBottom()
+    constexpr double getBottom() const
     {
         return ymin;
     }
 
-    constexpr double getTop()
+    constexpr double getTop() const
     {
-        return ymin + height;
+        return ymax;
     }
 
-    bool contains(vector2D position)
+    inline constexpr bool contains(const vector2D &position) const
     {
-        return ((position.x >= xmin) && (position.x < xmin + width) && (position.y >= ymin) && (position.y < ymin + height));
+        return ((position.x >= getLeft()) && (position.x < getRight()) && (position.y >= getBottom()) && (position.y < getTop()));
+    }
+
+    inline constexpr bool intersects(const Bounds &other) const
+    {
+        return !(getLeft() > other.getRight() || getRight() < other.getLeft() || getTop() < other.getBottom() || getBottom() > other.getTop());
     }
 };
 

@@ -23,7 +23,7 @@ void updateParticles(std::vector<std::shared_ptr<Particle>> &particles, QuadTree
     com_x /= total_mass;
     com_y /= total_mass;
 
-    vector2D new_com = vector2D(com_x, com_y);
+    vector2D new_com = {com_x, com_y};
 #pragma omp parallel for schedule(static, CHUNK_SIZE)
     for (auto &particle : particles)
     {
@@ -55,7 +55,7 @@ void checkCollisions(std::vector<std::shared_ptr<Particle>> &particles, QuadTree
 /* find the colliding particles */
 // for (auto &particle : particles)
 // {
-#pragma omp parallel for schedule(dynamic, CHUNK_SIZE)
+#pragma omp for schedule(dynamic, CHUNK_SIZE)
         for (int i = 0; i < static_cast<int>(particles.size()); i++)
         {
             auto &particle = particles[i];

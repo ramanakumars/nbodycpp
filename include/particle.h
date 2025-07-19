@@ -26,21 +26,4 @@ public:
     }
 
     Particle(const Particle &other) = default;
-
-    void checkBounds(Bounds bounds)
-    {
-        return;
-        if ((position.x > bounds.getRight()) || (position.x < bounds.getLeft()))
-        {
-            velocity.x = -velocity.x;
-            position.x = fmax(bounds.getRight(), position.x);
-            position.x = fmin(bounds.getLeft(), position.x);
-        }
-        if ((position.y > bounds.getTop()) || (position.y < bounds.getBottom()))
-        {
-            velocity.y = -velocity.y;
-            position.y = fmax(bounds.getTop(), position.y);
-            position.y = fmin(bounds.getBottom(), position.y);
-        }
-    }
 };

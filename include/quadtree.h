@@ -3,7 +3,7 @@
 #include "global.h"
 #include "bounds.h"
 
-#define MAX_CAPACITY 25
+#define MAX_CAPACITY 50
 #define MAX_DEPTH 15
 
 template <class T>
@@ -12,7 +12,7 @@ class QuadTree
 public:
     Bounds bounds;
     double totalMass, thetaScale;
-    vector2D centerOfMass = vector2D(0., 0.);
+    vector2D centerOfMass;
     int depth;
     bool is_divided = false;
     std::vector<std::shared_ptr<T>> particles;
@@ -26,7 +26,6 @@ public:
         particles.reserve(MAX_CAPACITY);
         totalMass = 0;
         thetaScale = 0;
-        centerOfMass = {(xmin + width / 2), (ymin + width / 2)};
         parent = _parent;
     }
 
@@ -109,9 +108,6 @@ public:
 
         for (auto &child : children)
         {
-            // this->particles.insert(this->particles.end(),
-            //                        std::make_move_iterator(child->particles.begin()),
-            //                        std::make_move_iterator(child->particles.end()));
             std::move(child->particles.begin(), child->particles.end(), std::back_inserter(this->particles));
             delete child;
         }
@@ -121,7 +117,7 @@ public:
 
     void calculateCOM()
     {
-        centerOfMass = vector2D(0, 0);
+        centerOfMass = {0, 0};
         totalMass = 0;
 
         if (is_divided)
