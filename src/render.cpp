@@ -1,4 +1,6 @@
 #include "render.h"
+#include "global.h"
+#include "arial_ttf.h"
 
 sf::Color BACKGROUND_COLOR(0, 0, 0);
 sf::Color PARTICLE_COLOR(255, 255, 255);
@@ -135,7 +137,7 @@ void Render::renderTime(double time)
 
     if (!initialized)
     {
-        if (!font.loadFromFile("../fonts/arial.ttf"))
+        if (!font.loadFromMemory(___fonts_arial_ttf, ___fonts_arial_ttf_len))
         {
             std::cerr << "Failed to load font!" << std::endl;
             return;
@@ -164,7 +166,7 @@ void Render::renderParticleInfo(Particle *particle)
 
     if (!initialized)
     {
-        if (!font.loadFromFile("../fonts/arial.ttf"))
+        if (!font.loadFromMemory(___fonts_arial_ttf, ___fonts_arial_ttf_len))
         {
             std::cerr << "Failed to load font!" << std::endl;
             return;

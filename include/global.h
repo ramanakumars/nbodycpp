@@ -12,7 +12,6 @@
 #include <omp.h>
 
 #define CHUNK_SIZE 500
-const double M_PI = 3.14159;
 
 const double GRAV_G = 1;
 const double MASS_REF = 0.1;
