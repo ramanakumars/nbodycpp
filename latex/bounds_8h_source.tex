@@ -1,0 +1,54 @@
+\doxysection{bounds.\+h}
+\hypertarget{bounds_8h_source}{}\label{bounds_8h_source}\index{include/bounds.h@{include/bounds.h}}
+\mbox{\hyperlink{bounds_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{global_8h}{global.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector2D_8h}{vector2D.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBounds}{Bounds}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classBounds_adfe232e2121be69f215e49baf0a92d16}{xmin}};\ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classBounds_aa9e8ec0549dd15e753b93d4421b6ecfb}{ymin}};\ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classBounds_ab0f93deeeb126f9ba75c2d164833bd5b}{xmax}};\ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classBounds_a5874bbc1e12d683f266e26503dc40397}{ymax}};\ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classBounds_a0ffb236825a411158cc5c8d007fd65b6}{width}};\ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classBounds_aacb7eba25c41f80b0dcf43c4085600e7}{height}};\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBounds_ac44bea217420f57e9c93cb0de7962de9}{set\_bounds}}(\textcolor{keywordtype}{double}\ \_xmin,\ \textcolor{keywordtype}{double}\ \_ymin,\ \textcolor{keywordtype}{double}\ \_width,\ \textcolor{keywordtype}{double}\ \_height)}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBounds_adfe232e2121be69f215e49baf0a92d16}{xmin}}\ =\ \_xmin;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBounds_aa9e8ec0549dd15e753b93d4421b6ecfb}{ymin}}\ =\ \_ymin;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBounds_ab0f93deeeb126f9ba75c2d164833bd5b}{xmax}}\ =\ \_xmin\ +\ \_width;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBounds_a5874bbc1e12d683f266e26503dc40397}{ymax}}\ =\ \_ymin\ +\ \_height;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBounds_a0ffb236825a411158cc5c8d007fd65b6}{width}}\ =\ \_width;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBounds_aacb7eba25c41f80b0dcf43c4085600e7}{height}}\ =\ \_height;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classBounds_ac60a1685f3191380de395b41808acce2}{getLeft}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classBounds_adfe232e2121be69f215e49baf0a92d16}{xmin}};\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classBounds_a6b57f7d28b9a4b97f916a2332e22ea1c}{getRight}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classBounds_ab0f93deeeb126f9ba75c2d164833bd5b}{xmax}};\ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classBounds_a622b600bee6232aea81ea9a450de91f8}{getBottom}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classBounds_aa9e8ec0549dd15e753b93d4421b6ecfb}{ymin}};\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classBounds_a230ecc987a02dc4ee0cb991444e4df48}{getTop}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classBounds_a5874bbc1e12d683f266e26503dc40397}{ymax}};\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBounds_a8b2a4a5468b5f7244bd4cd7a4deb971f}{contains}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvector2D}{vector2D}}\ \&position)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00065\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((position.\mbox{\hyperlink{classvector2D_aa8e1241f835e73c8b43d7d95695c600d}{x}}\ >=\ \mbox{\hyperlink{classBounds_ac60a1685f3191380de395b41808acce2}{getLeft}}())\ \&\&\ (position.\mbox{\hyperlink{classvector2D_aa8e1241f835e73c8b43d7d95695c600d}{x}}\ <\ \mbox{\hyperlink{classBounds_a6b57f7d28b9a4b97f916a2332e22ea1c}{getRight}}())\ \&\&}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (position.\mbox{\hyperlink{classvector2D_afd21ba725b5c9ae1471286cad1f2b530}{y}}\ >=\ \mbox{\hyperlink{classBounds_a622b600bee6232aea81ea9a450de91f8}{getBottom}}())\ \&\&\ (position.\mbox{\hyperlink{classvector2D_afd21ba725b5c9ae1471286cad1f2b530}{y}}\ <\ \mbox{\hyperlink{classBounds_a230ecc987a02dc4ee0cb991444e4df48}{getTop}}()));}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBounds_ae28edd9070500b07e5bf852bfa815106}{intersects}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classBounds}{Bounds}}\ \&other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00077\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(\mbox{\hyperlink{classBounds_ac60a1685f3191380de395b41808acce2}{getLeft}}()\ >\ other.\mbox{\hyperlink{classBounds_a6b57f7d28b9a4b97f916a2332e22ea1c}{getRight}}()\ ||\ \mbox{\hyperlink{classBounds_a6b57f7d28b9a4b97f916a2332e22ea1c}{getRight}}()\ <\ other.\mbox{\hyperlink{classBounds_ac60a1685f3191380de395b41808acce2}{getLeft}}()\ ||}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBounds_a230ecc987a02dc4ee0cb991444e4df48}{getTop}}()\ <\ other.\mbox{\hyperlink{classBounds_a622b600bee6232aea81ea9a450de91f8}{getBottom}}()\ ||\ \mbox{\hyperlink{classBounds_a622b600bee6232aea81ea9a450de91f8}{getBottom}}()\ >\ other.\mbox{\hyperlink{classBounds_a230ecc987a02dc4ee0cb991444e4df48}{getTop}}());}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classBounds}{Bounds}}\ \mbox{\hyperlink{bounds_8h_a8ac432d0c7f6c907c1eff22e0b87969d}{global\_bounds}};}
+
+\end{DoxyCode}

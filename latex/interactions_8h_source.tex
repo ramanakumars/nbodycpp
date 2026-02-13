@@ -1,0 +1,26 @@
+\doxysection{interactions.\+h}
+\hypertarget{interactions_8h_source}{}\label{interactions_8h_source}\index{include/interactions.h@{include/interactions.h}}
+\mbox{\hyperlink{interactions_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{global_8h}{global.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{quadtree_8h}{quadtree.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle_8h}{particle.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interactions_8h_a442ab3f0237d06bdddf96b5bb372c031}{transportStep}}(std::vector<std::shared\_ptr<Particle>>\ \&particles,\ \mbox{\hyperlink{classQuadTree}{QuadTree<Particle>}}\ *tree,\ \textcolor{keywordtype}{double}\ dt);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interactions_8h_a3e899bb08b8a5d02d97f09baaf33576d}{updateParticles}}(std::vector<std::shared\_ptr<Particle>>\ \&,\ \mbox{\hyperlink{classQuadTree}{QuadTree<Particle>}}\ *,\ \textcolor{keywordtype}{double});}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interactions_8h_a1399432aaf7ba2685aa4eeebb2ba9cc6}{checkCollisions}}(std::vector<std::shared\_ptr<Particle>>\ \&,\ \mbox{\hyperlink{classQuadTree}{QuadTree<Particle>}}\ *,\ \textcolor{keywordtype}{double}\ dt);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCollisionInfo}{CollisionInfo}}\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCollisionInfo_a12a4d6547c846faddee7c59864d15eb8}{willCollide}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structCollisionInfo_a4def6eadae19203f5c6b4b0a94e3a7ed}{collisionTime}};\ \ \ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structCollisionInfo_acc7550a9b5f5f4480e6ba2bef27bbbdd}{minDistance}};\ \ \ \ \ }
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00090\ \mbox{\hyperlink{structCollisionInfo}{CollisionInfo}}\ \mbox{\hyperlink{interactions_8h_a97537fab4566bf53acdc825abb69a5b2}{predictCollision}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classParticle}{Particle}}\ *p1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classParticle}{Particle}}\ *p2,\ \textcolor{keywordtype}{double}\ dt);}
+
+\end{DoxyCode}

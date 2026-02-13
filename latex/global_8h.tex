@@ -1,0 +1,107 @@
+\doxysection{include/global.h File Reference}
+\hypertarget{global_8h}{}\label{global_8h}\index{include/global.h@{include/global.h}}
+
+
+Global constants, includes, and type definitions for N-\/body simulation.  
+
+
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include $<$omp.\+h$>$}\newline
+Include dependency graph for global.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{global_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{global_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{global_8h_aea3cfda4f3a9f978ec759f206cf186fe}\label{global_8h_aea3cfda4f3a9f978ec759f206cf186fe} 
+\#\mbox{\hyperlink{classQuadTree}{define}} {\bfseries CHUNK\+\_\+\+SIZE}~500
+\begin{DoxyCompactList}\small\item\em Open\+MP chunk size for parallel loops. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427}{transport\+\_\+type}} \{ \mbox{\hyperlink{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427adf4ec4688fdc0029bf993a9c3d803f7b}{RK2}}
+, \mbox{\hyperlink{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427a2efdc542ce87a9684d8b9fe585b35a81}{YOSHIDA}}
+, \mbox{\hyperlink{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427a88e4c6a7dff57eb6f1f838c4eb8844a2}{HERMITE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Available integrator types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{global_8h_a5abeecca4958a7710993fb151b322167}\label{global_8h_a5abeecca4958a7710993fb151b322167} 
+\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries GRAV\+\_\+G} = 1
+\begin{DoxyCompactList}\small\item\em Gravitational constant (in simulation units) \end{DoxyCompactList}\item 
+\Hypertarget{global_8h_a1e10697aea98f3d7a938de8fa318c50e}\label{global_8h_a1e10697aea98f3d7a938de8fa318c50e} 
+\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries MASS\+\_\+\+REF} = 0.\+1
+\begin{DoxyCompactList}\small\item\em Reference mass for Barnes-\/\+Hut theta scaling. \end{DoxyCompactList}\item 
+\Hypertarget{global_8h_a29874299171f0e96c480b139d19adef4}\label{global_8h_a29874299171f0e96c480b139d19adef4} 
+\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries ALPHA} = 0.\+5
+\begin{DoxyCompactList}\small\item\em Exponent for theta scaling\+: theta\+\_\+eff = theta \texorpdfstring{$\ast$}{*} (M\+\_\+ref/\+M\+\_\+cell)\texorpdfstring{$^\wedge$}{\string^}alpha. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427}{transport\+\_\+type}} \mbox{\hyperlink{global_8h_a55dbb916b6100c51eb7e599ccba7a502}{TRANSPORT\+\_\+\+TYPE}}
+\begin{DoxyCompactList}\small\item\em Global integrator selection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Global constants, includes, and type definitions for N-\/body simulation. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427}\label{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427} 
+\index{global.h@{global.h}!transport\_type@{transport\_type}}
+\index{transport\_type@{transport\_type}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{transport\_type}{transport\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{enum}} \mbox{\hyperlink{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427}{transport\+\_\+type}}}
+
+
+
+Available integrator types. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RK2@{RK2}!global.h@{global.h}}\index{global.h@{global.h}!RK2@{RK2}}}\Hypertarget{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427adf4ec4688fdc0029bf993a9c3d803f7b}\label{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427adf4ec4688fdc0029bf993a9c3d803f7b} 
+RK2&2nd order Runge-\/\+Kutta (midpoint method) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YOSHIDA@{YOSHIDA}!global.h@{global.h}}\index{global.h@{global.h}!YOSHIDA@{YOSHIDA}}}\Hypertarget{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427a2efdc542ce87a9684d8b9fe585b35a81}\label{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427a2efdc542ce87a9684d8b9fe585b35a81} 
+YOSHIDA&4th order symplectic Yoshida integrator \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HERMITE@{HERMITE}!global.h@{global.h}}\index{global.h@{global.h}!HERMITE@{HERMITE}}}\Hypertarget{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427a88e4c6a7dff57eb6f1f838c4eb8844a2}\label{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427a88e4c6a7dff57eb6f1f838c4eb8844a2} 
+HERMITE&4th order Hermite predictor-\/corrector \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{global_8h_a55dbb916b6100c51eb7e599ccba7a502}\label{global_8h_a55dbb916b6100c51eb7e599ccba7a502} 
+\index{global.h@{global.h}!TRANSPORT\_TYPE@{TRANSPORT\_TYPE}}
+\index{TRANSPORT\_TYPE@{TRANSPORT\_TYPE}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{TRANSPORT\_TYPE}{TRANSPORT\_TYPE}}
+{\footnotesize\ttfamily \mbox{\hyperlink{global_8h_a86cdaffc49feb3f5e3f1ffacfc054427}{transport\+\_\+type}} TRANSPORT\+\_\+\+TYPE\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Global integrator selection. 
+
+Global integrator selection. 

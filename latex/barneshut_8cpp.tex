@@ -1,0 +1,112 @@
+\doxysection{src/barneshut.cpp File Reference}
+\hypertarget{barneshut_8cpp}{}\label{barneshut_8cpp}\index{src/barneshut.cpp@{src/barneshut.cpp}}
+
+
+Implementation of Barnes-\/\+Hut hierarchical force calculation.  
+
+
+{\ttfamily \#include "{}barneshut.\+h"{}}\newline
+Include dependency graph for barneshut.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{barneshut_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{barneshut_8cpp_a6c13d7113acb9fff1fe67641dfd53779}{get\+Acceleration}} (\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&particles, \mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}tree)
+\begin{DoxyCompactList}\small\item\em Calculate acceleration for all particles using Barnes-\/\+Hut algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{barneshut_8cpp_ace1f641b83c859955e53e85b0763ffd2}{force\+And\+Jerk}} (\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classParticle}{Particle}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classQuadTree}{p1}}, \mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classParticle}{Particle}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classQuadTree}{p2}}, \mbox{\hyperlink{classvector2D}{vector2D}} \&\mbox{\hyperlink{classQuadTree}{acc\+\_\+out}}, \mbox{\hyperlink{classvector2D}{vector2D}} \&\mbox{\hyperlink{classQuadTree}{jerk\+\_\+out}})
+\begin{DoxyCompactList}\small\item\em Compute gravitational acceleration and jerk for particle pair. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{barneshut_8cpp_adf9382837f326058b8195ada21ce78c8}{Barnes\+Hut\+Force\+And\+Jerk}} (\mbox{\hyperlink{classParticle}{Particle}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classQuadTree}{p}}, \mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}tree, \mbox{\hyperlink{classQuadTree}{double}} \mbox{\hyperlink{classQuadTree}{theta}})
+\begin{DoxyCompactList}\small\item\em Barnes-\/\+Hut tree walk with jerk calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of Barnes-\/\+Hut hierarchical force calculation. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{barneshut_8cpp_adf9382837f326058b8195ada21ce78c8}\label{barneshut_8cpp_adf9382837f326058b8195ada21ce78c8} 
+\index{barneshut.cpp@{barneshut.cpp}!BarnesHutForceAndJerk@{BarnesHutForceAndJerk}}
+\index{BarnesHutForceAndJerk@{BarnesHutForceAndJerk}!barneshut.cpp@{barneshut.cpp}}
+\doxysubsubsection{\texorpdfstring{BarnesHutForceAndJerk()}{BarnesHutForceAndJerk()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} Barnes\+Hut\+Force\+And\+Jerk (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classParticle}{Particle}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}}]{tree,  }\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{theta }\end{DoxyParamCaption})}
+
+
+
+Barnes-\/\+Hut tree walk with jerk calculation. 
+
+Recursively calculate force and jerk using Barnes-\/\+Hut tree.
+
+Recursively traverses the quadtree, using the multipole approximation when cells are sufficiently distant. Calculates both acceleration and jerk.
+
+Three cases\+:
+\begin{DoxyEnumerate}
+\item Cell far enough (s \texorpdfstring{$<$}{<} d\texorpdfstring{$\ast$}{*}θ)\+: Use multipole approximation
+\item Cell subdivided\+: Recurse into children
+\item Leaf node\+: Direct particle-\/particle calculation
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Target particle \\
+\hline
+{\em tree} & Current tree node \\
+\hline
+{\em theta} & Opening angle (accuracy parameter) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{barneshut_8cpp_ace1f641b83c859955e53e85b0763ffd2}\label{barneshut_8cpp_ace1f641b83c859955e53e85b0763ffd2} 
+\index{barneshut.cpp@{barneshut.cpp}!forceAndJerk@{forceAndJerk}}
+\index{forceAndJerk@{forceAndJerk}!barneshut.cpp@{barneshut.cpp}}
+\doxysubsubsection{\texorpdfstring{forceAndJerk()}{forceAndJerk()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} force\+And\+Jerk (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classParticle}{Particle}} \texorpdfstring{$\ast$}{*}}]{p1,  }\item[{\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classParticle}{Particle}} \texorpdfstring{$\ast$}{*}}]{p2,  }\item[{\mbox{\hyperlink{classvector2D}{vector2D}} \&}]{acc\+\_\+out,  }\item[{\mbox{\hyperlink{classvector2D}{vector2D}} \&}]{jerk\+\_\+out }\end{DoxyParamCaption})}
+
+
+
+Compute gravitational acceleration and jerk for particle pair. 
+
+Calculate gravitational force and jerk between two particles.
+
+Direct particle-\/particle calculation with softening. Computes both the gravitational force and its time derivative.
+
+The jerk formula comes from differentiating Newton\textquotesingle{}s law\+: d/dt\mbox{[}-\/Gm\texorpdfstring{$\ast$}{*}r/r³\mbox{]} = -\/Gm\texorpdfstring{$\ast$}{*}\mbox{[}v/r³ -\/ 3(r·v)r/r⁵\mbox{]}
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em p1} & \doxylink{classParticle}{Particle} being acted upon \\
+\hline
+ & {\em p2} & Source particle \\
+\hline
+\mbox{\texttt{ out}}  & {\em acc\+\_\+out} & Acceleration output \\
+\hline
+\mbox{\texttt{ out}}  & {\em jerk\+\_\+out} & Jerk output \\
+\hline
+\end{DoxyParams}
+\Hypertarget{barneshut_8cpp_a6c13d7113acb9fff1fe67641dfd53779}\label{barneshut_8cpp_a6c13d7113acb9fff1fe67641dfd53779} 
+\index{barneshut.cpp@{barneshut.cpp}!getAcceleration@{getAcceleration}}
+\index{getAcceleration@{getAcceleration}!barneshut.cpp@{barneshut.cpp}}
+\doxysubsubsection{\texorpdfstring{getAcceleration()}{getAcceleration()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} get\+Acceleration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&}]{particles,  }\item[{\mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}}]{tree }\end{DoxyParamCaption})}
+
+
+
+Calculate acceleration for all particles using Barnes-\/\+Hut algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & Vector of particles to update \\
+\hline
+{\em tree} & \doxylink{classQuadTree}{Quad\+Tree} structure for hierarchical force calculation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Zeros acceleration before calculation 
+
+Parallelized with Open\+MP 
+\end{DoxyNote}

@@ -1,0 +1,385 @@
+\doxysection{Render Class Reference}
+\hypertarget{classRender}{}\label{classRender}\index{Render@{Render}}
+
+
+Main rendering class for visualization.  
+
+
+
+
+{\ttfamily \#include $<$render.\+h$>$}
+
+
+
+Collaboration diagram for Render\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRender__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRender_a42d9e3a0d8e422cab90feeb624c9b0ce}{Render}} (\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&\mbox{\hyperlink{classQuadTree}{\+\_\+particles}}, \mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classQuadTree}{\+\_\+tree}})
+\begin{DoxyCompactList}\small\item\em Construct renderer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{classRender_a9b162d1c196578b3b482bd85fea556a8}{render\+Test\+Particles}} (\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classParticle}{Particle}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classRender_a09144dae610b2ffeb839f3f6ee64af87}{particles}})
+\begin{DoxyCompactList}\small\item\em \doxylink{classRender}{Render} debug particles (green circles) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{classRender_ac1583af424f7b429550d168104871133}{render\+Particles}} (\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&)
+\begin{DoxyCompactList}\small\item\em \doxylink{classRender}{Render} all particles with velocity-\/based coloring. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{classRender_a1e8458b342043c7e1fd7a5fc0a46615a}{render\+Tree}} (\mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em \doxylink{classRender}{Render} \doxylink{classQuadTree}{Quad\+Tree} structure overlay. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{classRender_a2c07083233eb3465be1008038cadaed1}{render\+Bounds}} (\mbox{\hyperlink{classBounds}{Bounds}})
+\begin{DoxyCompactList}\small\item\em \doxylink{classRender}{Render} a bounding box outline. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{classRender_a2af2979b066199de81f37df0a71d3135}{render\+Line}} (\mbox{\hyperlink{classvector2D}{vector2D}}, \mbox{\hyperlink{classvector2D}{vector2D}})
+\begin{DoxyCompactList}\small\item\em \doxylink{classRender}{Render} a line between two points. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{classRender_aaf0815f8e76e649a90e460445ba4d300}{render\+Time}} (\mbox{\hyperlink{classQuadTree}{double}})
+\begin{DoxyCompactList}\small\item\em \doxylink{classRender}{Render} simulation time display. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{classRender_a1157ee69bc3af2c516733061c27ae989}{render\+Particle\+Info}} (\mbox{\hyperlink{classParticle}{Particle}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em \doxylink{classRender}{Render} information about tracked particle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{classRender_a3daa19c318982d4915b83042bfad1ec5}{run}} (\mbox{\hyperlink{classQuadTree}{double}})
+\begin{DoxyCompactList}\small\item\em Main render loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{classRender_ad50b1bd19d5b3478901f8e7e1fb6a676}{find\+Track\+Particle}} ()
+\begin{DoxyCompactList}\small\item\em Find particle at mouse cursor position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classRender_a83109549f6df4bd74438db5bacb7d853}\label{classRender_a83109549f6df4bd74438db5bacb7d853} 
+\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{sf\+::\+Render\+Window}} {\bfseries window}
+\begin{DoxyCompactList}\small\item\em SFML render window. \end{DoxyCompactList}\item 
+\Hypertarget{classRender_a09144dae610b2ffeb839f3f6ee64af87}\label{classRender_a09144dae610b2ffeb839f3f6ee64af87} 
+\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \& {\bfseries particles}
+\begin{DoxyCompactList}\small\item\em \doxylink{classParticle}{Particle} array reference. \end{DoxyCompactList}\item 
+\Hypertarget{classRender_a08847a17fc57a6a8c1bd5f8930959596}\label{classRender_a08847a17fc57a6a8c1bd5f8930959596} 
+\mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*} {\bfseries tree}
+\begin{DoxyCompactList}\small\item\em \doxylink{classQuadTree}{Quad\+Tree} pointer. \end{DoxyCompactList}\item 
+\Hypertarget{classRender_a46624d12ba95f1cdcd305a69f4a4b795}\label{classRender_a46624d12ba95f1cdcd305a69f4a4b795} 
+\mbox{\hyperlink{classParticle}{Particle}} \texorpdfstring{$\ast$}{*} {\bfseries track\+\_\+particle} = \mbox{\hyperlink{classQuadTree}{nullptr}}
+\begin{DoxyCompactList}\small\item\em Currently tracked particle. \end{DoxyCompactList}\item 
+\Hypertarget{classRender_a44a85d0f39e4618b4ecf688c7d51190d}\label{classRender_a44a85d0f39e4618b4ecf688c7d51190d} 
+\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classParticle}{Particle}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries query\+\_\+particles}
+\begin{DoxyCompactList}\small\item\em Query result buffer. \end{DoxyCompactList}\item 
+\Hypertarget{classRender_a4e9d2137702a471bf99316338946f761}\label{classRender_a4e9d2137702a471bf99316338946f761} 
+\mbox{\hyperlink{classBounds}{Bounds}} {\bfseries query\+\_\+bounds}
+\begin{DoxyCompactList}\small\item\em Query region. \end{DoxyCompactList}\item 
+\Hypertarget{classRender_a29555a907f4549805d9f9ba936dd41c9}\label{classRender_a29555a907f4549805d9f9ba936dd41c9} 
+\mbox{\hyperlink{classQuadTree}{bool}} {\bfseries should\+Render\+Tree} = \mbox{\hyperlink{classQuadTree}{false}}
+\begin{DoxyCompactList}\small\item\em Show \doxylink{classQuadTree}{Quad\+Tree} overlay. \end{DoxyCompactList}\item 
+\Hypertarget{classRender_a7921fcd4fba012ae4061d452ec4b97ba}\label{classRender_a7921fcd4fba012ae4061d452ec4b97ba} 
+\mbox{\hyperlink{classQuadTree}{bool}} {\bfseries pause\+Sim} = \mbox{\hyperlink{classQuadTree}{true}}
+\begin{DoxyCompactList}\small\item\em Simulation paused. \end{DoxyCompactList}\item 
+\Hypertarget{classRender_adbc4773ebcc3591f28a2d1a98689a663}\label{classRender_adbc4773ebcc3591f28a2d1a98689a663} 
+\mbox{\hyperlink{classQuadTree}{double}} {\bfseries view\+\_\+width} = 8
+\begin{DoxyCompactList}\small\item\em View width in sim units. \end{DoxyCompactList}\item 
+\Hypertarget{classRender_a643e1e75214712fa32f9fe27fa37c3cd}\label{classRender_a643e1e75214712fa32f9fe27fa37c3cd} 
+\mbox{\hyperlink{classvector2D}{vector2D}} {\bfseries view\+\_\+center}
+\begin{DoxyCompactList}\small\item\em View center position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main rendering class for visualization. 
+
+Handles SFML window creation, event processing, and rendering of particles, quadtree structure, and UI elements.
+
+Features\+:
+\begin{DoxyItemize}
+\item Real-\/time particle visualization
+\item \doxylink{classQuadTree}{Quad\+Tree} structure overlay
+\item \doxylink{classParticle}{Particle} tracking (click to follow)
+\item Zoom and pan controls
+\item Velocity-\/based coloring (bound vs unbound orbits)
+\item Pause/resume simulation 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRender_a42d9e3a0d8e422cab90feeb624c9b0ce}\label{classRender_a42d9e3a0d8e422cab90feeb624c9b0ce} 
+\index{Render@{Render}!Render@{Render}}
+\index{Render@{Render}!Render@{Render}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily Render\+::\+Render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&}]{\+\_\+particles,  }\item[{\mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}}]{\+\_\+tree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct renderer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+particles} & Reference to particle vector \\
+\hline
+{\em \+\_\+tree} & Pointer to \doxylink{classQuadTree}{Quad\+Tree} structure \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRender_ad50b1bd19d5b3478901f8e7e1fb6a676}\label{classRender_ad50b1bd19d5b3478901f8e7e1fb6a676} 
+\index{Render@{Render}!findTrackParticle@{findTrackParticle}}
+\index{findTrackParticle@{findTrackParticle}!Render@{Render}}
+\doxysubsubsection{\texorpdfstring{findTrackParticle()}{findTrackParticle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} Render\+::find\+Track\+Particle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Find particle at mouse cursor position. 
+
+Find and track particle nearest to mouse cursor.
+
+Uses \doxylink{classQuadTree}{Quad\+Tree} spatial query to find nearest particle to mouse click location. Updates track\+\_\+particle.
+
+Algorithm\+:
+\begin{DoxyEnumerate}
+\item Convert mouse position from screen to simulation coordinates
+\item Create search region (10\% of view width, centered on cursor)
+\item Query \doxylink{classQuadTree}{Quad\+Tree} for particles in region
+\item Find particle closest to cursor
+\item Set as tracked particle
+\end{DoxyEnumerate}
+
+The tracked particle will be\+:
+\begin{DoxyItemize}
+\item Followed by the camera (view\+\_\+center = particle position)
+\item Highlighted with info display (ID, position, velocity)
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Called on mouse click event 
+\end{DoxyNote}
+\Hypertarget{classRender_a2c07083233eb3465be1008038cadaed1}\label{classRender_a2c07083233eb3465be1008038cadaed1} 
+\index{Render@{Render}!renderBounds@{renderBounds}}
+\index{renderBounds@{renderBounds}!Render@{Render}}
+\doxysubsubsection{\texorpdfstring{renderBounds()}{renderBounds()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} Render\+::render\+Bounds (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBounds}{Bounds}}}]{bounds }\end{DoxyParamCaption})}
+
+
+
+\doxylink{classRender}{Render} a bounding box outline. 
+
+\doxylink{classRender}{Render} a rectangular bounding box.
+
+Draws four lines forming a rectangle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bounds} & Bounding box to render \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRender_a2af2979b066199de81f37df0a71d3135}\label{classRender_a2af2979b066199de81f37df0a71d3135} 
+\index{Render@{Render}!renderLine@{renderLine}}
+\index{renderLine@{renderLine}!Render@{Render}}
+\doxysubsubsection{\texorpdfstring{renderLine()}{renderLine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} Render\+::render\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvector2D}{vector2D}}}]{position1,  }\item[{\mbox{\hyperlink{classvector2D}{vector2D}}}]{position2 }\end{DoxyParamCaption})}
+
+
+
+\doxylink{classRender}{Render} a line between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position1} & Start point in simulation coordinates \\
+\hline
+{\em position2} & End point in simulation coordinates \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRender_a1157ee69bc3af2c516733061c27ae989}\label{classRender_a1157ee69bc3af2c516733061c27ae989} 
+\index{Render@{Render}!renderParticleInfo@{renderParticleInfo}}
+\index{renderParticleInfo@{renderParticleInfo}!Render@{Render}}
+\doxysubsubsection{\texorpdfstring{renderParticleInfo()}{renderParticleInfo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} Render\+::render\+Particle\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classParticle}{Particle}} \texorpdfstring{$\ast$}{*}}]{particle }\end{DoxyParamCaption})}
+
+
+
+\doxylink{classRender}{Render} information about tracked particle. 
+
+Displays in upper-\/right corner\+:
+\begin{DoxyItemize}
+\item \doxylink{classParticle}{Particle} ID and mass
+\item Position (x, y)
+\item Velocity (vx, vy, \texorpdfstring{$\vert$}{|}v\texorpdfstring{$\vert$}{|})
+\end{DoxyItemize}
+
+Only shown when a particle is being tracked (clicked).
+
+
+\begin{DoxyParams}{Parameters}
+{\em particle} & Pointer to tracked particle \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRender_ac1583af424f7b429550d168104871133}\label{classRender_ac1583af424f7b429550d168104871133} 
+\index{Render@{Render}!renderParticles@{renderParticles}}
+\index{renderParticles@{renderParticles}!Render@{Render}}
+\doxysubsubsection{\texorpdfstring{renderParticles()}{renderParticles()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} Render\+::render\+Particles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&}]{particles }\end{DoxyParamCaption})}
+
+
+
+\doxylink{classRender}{Render} all particles with velocity-\/based coloring. 
+
+\doxylink{classRender}{Render} all particles with intelligent coloring.
+
+Rendering strategy\+:
+\begin{DoxyItemize}
+\item {\bfseries{Primary particles}} (is\+Primary=true)\+: Rendered as colored circles
+\begin{DoxyItemize}
+\item Size\+: logarithmic scale based on radius
+\item Color\+: PRIMARY\+\_\+\+COLOR (magenta)
+\end{DoxyItemize}
+\item {\bfseries{Test particles}} (is\+Primary=false)\+: Rendered as points
+\begin{DoxyItemize}
+\item White\+: bound orbit (v \texorpdfstring{$<$}{<} v\+\_\+escape)
+\item Red\+: unbound orbit (v ≥ v\+\_\+escape)
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Velocity coloring uses vis-\/viva equation\+:
+\begin{DoxyItemize}
+\item v\+\_\+escape = sqrt(2\texorpdfstring{$\ast$}{*}\+G\texorpdfstring{$\ast$}{*}\+M/r)
+\item Particles with v \texorpdfstring{$<$}{<} v\+\_\+escape are gravitationally bound
+\end{DoxyItemize}
+
+Performance optimization\+:
+\begin{DoxyItemize}
+\item Uses SFML Vertex\+Array for efficient point rendering
+\item Only renders particles within global\+\_\+bounds
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & Vector of all particles \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRender_a9b162d1c196578b3b482bd85fea556a8}\label{classRender_a9b162d1c196578b3b482bd85fea556a8} 
+\index{Render@{Render}!renderTestParticles@{renderTestParticles}}
+\index{renderTestParticles@{renderTestParticles}!Render@{Render}}
+\doxysubsubsection{\texorpdfstring{renderTestParticles()}{renderTestParticles()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} Render\+::render\+Test\+Particles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classParticle}{Particle}} \texorpdfstring{$\ast$}{*} $>$}]{particles }\end{DoxyParamCaption})}
+
+
+
+\doxylink{classRender}{Render} debug particles (green circles) 
+
+\doxylink{classRender}{Render} debug particles as green circles.
+
+Used for visualizing \doxylink{classQuadTree}{Quad\+Tree} query results or other debug info. Renders all particles as 2-\/pixel green circles.
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & Vector of particle pointers to render \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRender_aaf0815f8e76e649a90e460445ba4d300}\label{classRender_aaf0815f8e76e649a90e460445ba4d300} 
+\index{Render@{Render}!renderTime@{renderTime}}
+\index{renderTime@{renderTime}!Render@{Render}}
+\doxysubsubsection{\texorpdfstring{renderTime()}{renderTime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} Render\+::render\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{time }\end{DoxyParamCaption})}
+
+
+
+\doxylink{classRender}{Render} simulation time display. 
+
+Displays elapsed simulation time at top center of window. Font is loaded from embedded Arial TTF data on first call.
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & Elapsed simulation time (arbitrary units, labeled "{}years"{}) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRender_a1e8458b342043c7e1fd7a5fc0a46615a}\label{classRender_a1e8458b342043c7e1fd7a5fc0a46615a} 
+\index{Render@{Render}!renderTree@{renderTree}}
+\index{renderTree@{renderTree}!Render@{Render}}
+\doxysubsubsection{\texorpdfstring{renderTree()}{renderTree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} Render\+::render\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}}]{tree }\end{DoxyParamCaption})}
+
+
+
+\doxylink{classRender}{Render} \doxylink{classQuadTree}{Quad\+Tree} structure overlay. 
+
+Recursively render \doxylink{classQuadTree}{Quad\+Tree} structure.
+
+Visualizes the spatial partitioning by drawing bounding boxes of leaf nodes. Only draws nodes that intersect the viewing region.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & Root or subtree to render\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Toggled with \textquotesingle{}T\textquotesingle{} key (should\+Render\+Tree flag) 
+\end{DoxyNote}
+\Hypertarget{classRender_a3daa19c318982d4915b83042bfad1ec5}\label{classRender_a3daa19c318982d4915b83042bfad1ec5} 
+\index{Render@{Render}!run@{run}}
+\index{run@{run}!Render@{Render}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} Render\+::run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{dt }\end{DoxyParamCaption})}
+
+
+
+Main render loop. 
+
+Main rendering and event loop.
+
+Handles\+:
+\begin{DoxyItemize}
+\item Event processing (mouse, keyboard)
+\item Simulation stepping
+\item Rendering all elements
+\item \doxylink{classQuadTree}{Quad\+Tree} updates
+\end{DoxyItemize}
+
+Controls\+:
+\begin{DoxyItemize}
+\item Mouse click\+: Track particle
+\item Space\+: Pause/resume
+\item T\+: Toggle tree visualization
+\item C\+: Clear particle tracking
+\item Mouse wheel\+: Zoom
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Timestep for integration\\
+\hline
+\end{DoxyParams}
+Each frame\+:
+\begin{DoxyEnumerate}
+\item Update \doxylink{classQuadTree}{Quad\+Tree} structure (remove/reinsert displaced particles)
+\item Calculate center of mass for Barnes-\/\+Hut
+\item Integrate physics (if not paused)
+\item Process events (mouse, keyboard)
+\item Update view bounds (zoom, pan, tracking)
+\item \doxylink{classRender}{Render} all elements
+\end{DoxyEnumerate}
+
+{\bfseries{Keyboard Controls\+:}}
+\begin{DoxyItemize}
+\item {\bfseries{Space}}\+: Toggle pause/resume simulation
+\item {\bfseries{T}}\+: Toggle \doxylink{classQuadTree}{Quad\+Tree} visualization
+\item {\bfseries{C}}\+: Clear particle tracking (return to origin view)
+\end{DoxyItemize}
+
+{\bfseries{Mouse Controls\+:}}
+\begin{DoxyItemize}
+\item {\bfseries{Click}}\+: Track nearest particle
+\item {\bfseries{Scroll}}\+: Zoom in/out
+\end{DoxyItemize}
+
+{\bfseries{View Modes\+:}}
+\begin{DoxyItemize}
+\item Normal\+: View centered at origin
+\item Tracking\+: View follows selected particle
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Integration timestep \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{render_8h}{render.\+h}}\item 
+src/\mbox{\hyperlink{render_8cpp}{render.\+cpp}}\end{DoxyCompactItemize}

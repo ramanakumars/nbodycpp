@@ -1,0 +1,5 @@
+<map id="Particle" name="Particle">
+<area shape="rect" id="Node000001" title="Represents a particle in the N&#45;body simulation." alt="" coords="11,167,81,192"/>
+<area shape="rect" id="Node000002" href="$classvector2D.html" title="Two&#45;dimensional vector for positions, velocities, and accelerations." alt="" coords="5,5,87,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="49,44,49,166,43,166,43,44"/>
+</map>

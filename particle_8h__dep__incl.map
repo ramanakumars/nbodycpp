@@ -1,0 +1,35 @@
+<map id="include/particle.h" name="include/particle.h">
+<area shape="rect" id="Node000001" title="Particle class for N&#45;body simulation." alt="" coords="578,5,713,31"/>
+<area shape="rect" id="Node000002" href="$barneshut_8h.html" title="Barnes&#45;Hut algorithm for hierarchical N&#45;body force calculation." alt="" coords="254,79,405,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="582,36,381,81,380,76,581,31"/>
+<area shape="rect" id="Node000010" href="$hermite_8h.html" title="Hermite 4th order predictor&#45;corrector integrator for N&#45;body simulations." alt="" coords="491,79,627,104"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="623,41,575,81,571,76,619,37"/>
+<area shape="rect" id="Node000011" href="$interactions_8h.html" title="Particle interactions including integration and collision handling." alt="" coords="651,79,813,104"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="671,37,720,76,716,81,668,41"/>
+<area shape="rect" id="Node000012" href="$render_8h.html" title="Graphics rendering for N&#45;body simulation." alt="" coords="779,152,906,177"/>
+<area shape="poly" id="edge19_Node000001_Node000012" title=" " alt="" coords="727,25,781,43,806,58,827,77,839,95,844,116,846,152,841,152,839,117,834,97,823,80,803,62,778,48,725,30"/>
+<area shape="rect" id="Node000003" href="$RK2_8h.html" title="Second&#45;order Runge&#45;Kutta (RK2) integrator." alt="" coords="46,152,157,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="280,111,139,154,137,149,279,106"/>
+<area shape="rect" id="Node000004" href="$RK2_8cpp.html" title="Implementation of second&#45;order Runge&#45;Kutta integrator." alt="" coords="5,225,104,251"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="240,101,179,108,118,119,67,134,48,143,35,154,29,170,31,189,48,224,44,226,26,191,24,170,31,150,45,139,65,129,117,113,178,103,240,96"/>
+<area shape="rect" id="Node000006" href="$yoshida_8h.html" title="Yoshida 4th order symplectic integrator." alt="" coords="181,152,317,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="308,115,264,154,261,150,305,111"/>
+<area shape="rect" id="Node000008" href="$barneshut_8cpp.html" title="Implementation of Barnes&#45;Hut hierarchical force calculation." alt="" coords="342,152,479,177"/>
+<area shape="poly" id="edge9_Node000002_Node000008" title=" " alt="" coords="354,111,399,150,396,154,351,115"/>
+<area shape="rect" id="Node000009" href="$hermite_8cpp.html" title="Implementation of Hermite 4th order predictor&#45;corrector integrator." alt="" coords="504,152,627,177"/>
+<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="381,105,528,149,526,154,380,110"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="88,190,64,227,60,224,84,187"/>
+<area shape="rect" id="Node000005" href="$interactions_8cpp.html" title="Implementation of particle interactions and collision handling." alt="" coords="472,225,621,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="171,175,474,223,473,228,170,180"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="311,178,499,223,498,228,310,183"/>
+<area shape="rect" id="Node000007" href="$yoshida_8cpp.html" title="Implementation of Yoshida 4th order symplectic integrator." alt="" coords="188,225,311,251"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="252,191,252,225,247,225,247,191"/>
+<area shape="poly" id="edge13_Node000010_Node000005" title=" " alt="" coords="597,108,618,122,635,138,645,157,641,178,629,195,614,209,581,227,578,223,611,204,625,191,636,176,639,158,631,141,615,126,595,113"/>
+<area shape="poly" id="edge12_Node000010_Node000009" title=" " alt="" coords="564,118,567,152,562,152,558,118"/>
+<area shape="poly" id="edge18_Node000011_Node000005" title=" " alt="" coords="718,117,693,149,662,179,618,208,577,228,574,223,616,203,658,175,689,145,714,114"/>
+<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="763,109,826,150,823,154,760,114"/>
+<area shape="rect" id="Node000013" href="$main_8cpp.html" title="N&#45;body simulation of planetary system with 100k test particles." alt="" coords="857,225,962,251"/>
+<area shape="poly" id="edge16_Node000012_Node000013" title=" " alt="" coords="865,186,900,223,897,227,861,190"/>
+<area shape="rect" id="Node000014" href="$render_8cpp.html" title="Implementation of SFML&#45;based rendering for N&#45;body simulation." alt="" coords="719,225,833,251"/>
+<area shape="poly" id="edge17_Node000012_Node000014" title=" " alt="" coords="824,190,789,227,785,223,820,186"/>
+</map>

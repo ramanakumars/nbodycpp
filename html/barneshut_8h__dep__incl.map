@@ -1,0 +1,19 @@
+<map id="include/barneshut.h" name="include/barneshut.h">
+<area shape="rect" id="Node000001" title="Barnes&#45;Hut algorithm for hierarchical N&#45;body force calculation." alt="" coords="221,5,371,31"/>
+<area shape="rect" id="Node000002" href="$RK2_8h.html" title="Second&#45;order Runge&#45;Kutta (RK2) integrator." alt="" coords="93,79,203,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,39,173,81,171,76,259,34"/>
+<area shape="rect" id="Node000003" href="$RK2_8cpp.html" title="Implementation of second&#45;order Runge&#45;Kutta integrator." alt="" coords="5,152,104,177"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="208,27,174,33,141,44,109,59,82,81,70,97,63,116,57,152,52,151,58,115,65,95,78,77,107,55,139,39,173,28,207,21"/>
+<area shape="rect" id="Node000005" href="$yoshida_8h.html" title="Yoshida 4th order symplectic integrator." alt="" coords="228,79,364,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="299,44,299,79,293,79,293,44"/>
+<area shape="rect" id="Node000007" href="$barneshut_8cpp.html" title="Implementation of Barnes&#45;Hut hierarchical force calculation." alt="" coords="389,79,526,104"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="335,34,432,76,430,81,333,39"/>
+<area shape="rect" id="Node000008" href="$hermite_8cpp.html" title="Implementation of Hermite 4th order predictor&#45;corrector integrator." alt="" coords="551,79,673,104"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="361,31,561,76,560,81,359,36"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="124,114,72,154,68,150,121,110"/>
+<area shape="rect" id="Node000004" href="$interactions_8cpp.html" title="Implementation of particle interactions and collision handling." alt="" coords="128,152,277,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="167,113,196,150,192,154,163,117"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="272,114,220,154,216,150,269,110"/>
+<area shape="rect" id="Node000006" href="$yoshida_8cpp.html" title="Implementation of Yoshida 4th order symplectic integrator." alt="" coords="301,152,424,177"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="318,113,354,150,350,154,315,116"/>
+</map>

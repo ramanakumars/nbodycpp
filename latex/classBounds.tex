@@ -1,0 +1,123 @@
+\doxysection{Bounds Class Reference}
+\hypertarget{classBounds}{}\label{classBounds}\index{Bounds@{Bounds}}
+
+
+Axis-\/aligned rectangular bounding box.  
+
+
+
+
+{\ttfamily \#include $<$bounds.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{classBounds_ac44bea217420f57e9c93cb0de7962de9}{set\+\_\+bounds}} (\mbox{\hyperlink{classQuadTree}{double}} \mbox{\hyperlink{classQuadTree}{\+\_\+xmin}}, \mbox{\hyperlink{classQuadTree}{double}} \mbox{\hyperlink{classQuadTree}{\+\_\+ymin}}, \mbox{\hyperlink{classQuadTree}{double}} \mbox{\hyperlink{classQuadTree}{\+\_\+width}}, \mbox{\hyperlink{classQuadTree}{double}} \mbox{\hyperlink{classQuadTree}{\+\_\+height}})
+\begin{DoxyCompactList}\small\item\em Set bounding box dimensions. \end{DoxyCompactList}\item 
+\Hypertarget{classBounds_ac60a1685f3191380de395b41808acce2}\label{classBounds_ac60a1685f3191380de395b41808acce2} 
+\mbox{\hyperlink{classQuadTree}{constexpr}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries get\+Left} () \mbox{\hyperlink{classQuadTree}{const}}
+\begin{DoxyCompactList}\small\item\em Get left edge x-\/coordinate. \end{DoxyCompactList}\item 
+\Hypertarget{classBounds_a6b57f7d28b9a4b97f916a2332e22ea1c}\label{classBounds_a6b57f7d28b9a4b97f916a2332e22ea1c} 
+\mbox{\hyperlink{classQuadTree}{constexpr}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries get\+Right} () \mbox{\hyperlink{classQuadTree}{const}}
+\begin{DoxyCompactList}\small\item\em Get right edge x-\/coordinate. \end{DoxyCompactList}\item 
+\Hypertarget{classBounds_a622b600bee6232aea81ea9a450de91f8}\label{classBounds_a622b600bee6232aea81ea9a450de91f8} 
+\mbox{\hyperlink{classQuadTree}{constexpr}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries get\+Bottom} () \mbox{\hyperlink{classQuadTree}{const}}
+\begin{DoxyCompactList}\small\item\em Get bottom edge y-\/coordinate. \end{DoxyCompactList}\item 
+\Hypertarget{classBounds_a230ecc987a02dc4ee0cb991444e4df48}\label{classBounds_a230ecc987a02dc4ee0cb991444e4df48} 
+\mbox{\hyperlink{classQuadTree}{constexpr}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries get\+Top} () \mbox{\hyperlink{classQuadTree}{const}}
+\begin{DoxyCompactList}\small\item\em Get top edge y-\/coordinate. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{constexpr}} \mbox{\hyperlink{classQuadTree}{bool}} \mbox{\hyperlink{classBounds_a8b2a4a5468b5f7244bd4cd7a4deb971f}{contains}} (\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classvector2D}{vector2D}} \&position) \mbox{\hyperlink{classQuadTree}{const}}
+\begin{DoxyCompactList}\small\item\em Check if point is inside bounding box. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{constexpr}} \mbox{\hyperlink{classQuadTree}{bool}} \mbox{\hyperlink{classBounds_ae28edd9070500b07e5bf852bfa815106}{intersects}} (\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classBounds}{Bounds}} \&\mbox{\hyperlink{classQuadTree}{other}}) \mbox{\hyperlink{classQuadTree}{const}}
+\begin{DoxyCompactList}\small\item\em Check if this bounding box intersects another. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBounds_adfe232e2121be69f215e49baf0a92d16}\label{classBounds_adfe232e2121be69f215e49baf0a92d16} 
+\mbox{\hyperlink{classQuadTree}{double}} {\bfseries xmin}
+\begin{DoxyCompactList}\small\item\em Minimum x coordinate (left edge) \end{DoxyCompactList}\item 
+\Hypertarget{classBounds_aa9e8ec0549dd15e753b93d4421b6ecfb}\label{classBounds_aa9e8ec0549dd15e753b93d4421b6ecfb} 
+\mbox{\hyperlink{classQuadTree}{double}} {\bfseries ymin}
+\begin{DoxyCompactList}\small\item\em Minimum y coordinate (bottom edge) \end{DoxyCompactList}\item 
+\Hypertarget{classBounds_ab0f93deeeb126f9ba75c2d164833bd5b}\label{classBounds_ab0f93deeeb126f9ba75c2d164833bd5b} 
+\mbox{\hyperlink{classQuadTree}{double}} {\bfseries xmax}
+\begin{DoxyCompactList}\small\item\em Maximum x coordinate (right edge) \end{DoxyCompactList}\item 
+\Hypertarget{classBounds_a5874bbc1e12d683f266e26503dc40397}\label{classBounds_a5874bbc1e12d683f266e26503dc40397} 
+\mbox{\hyperlink{classQuadTree}{double}} {\bfseries ymax}
+\begin{DoxyCompactList}\small\item\em Maximum y coordinate (top edge) \end{DoxyCompactList}\item 
+\Hypertarget{classBounds_a0ffb236825a411158cc5c8d007fd65b6}\label{classBounds_a0ffb236825a411158cc5c8d007fd65b6} 
+\mbox{\hyperlink{classQuadTree}{double}} {\bfseries width}
+\begin{DoxyCompactList}\small\item\em Width of bounding box. \end{DoxyCompactList}\item 
+\Hypertarget{classBounds_aacb7eba25c41f80b0dcf43c4085600e7}\label{classBounds_aacb7eba25c41f80b0dcf43c4085600e7} 
+\mbox{\hyperlink{classQuadTree}{double}} {\bfseries height}
+\begin{DoxyCompactList}\small\item\em Height of bounding box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Axis-\/aligned rectangular bounding box. 
+
+Used for \doxylink{classQuadTree}{Quad\+Tree} cells and spatial query regions. Provides efficient containment and intersection tests. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBounds_a8b2a4a5468b5f7244bd4cd7a4deb971f}\label{classBounds_a8b2a4a5468b5f7244bd4cd7a4deb971f} 
+\index{Bounds@{Bounds}!contains@{contains}}
+\index{contains@{contains}!Bounds@{Bounds}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{constexpr}} \mbox{\hyperlink{classQuadTree}{bool}} Bounds\+::contains (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classvector2D}{vector2D}} \&}]{position }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Check if point is inside bounding box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Point to test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if position is within bounds (inclusive left/bottom, exclusive right/top) 
+\end{DoxyReturn}
+\Hypertarget{classBounds_ae28edd9070500b07e5bf852bfa815106}\label{classBounds_ae28edd9070500b07e5bf852bfa815106} 
+\index{Bounds@{Bounds}!intersects@{intersects}}
+\index{intersects@{intersects}!Bounds@{Bounds}}
+\doxysubsubsection{\texorpdfstring{intersects()}{intersects()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{constexpr}} \mbox{\hyperlink{classQuadTree}{bool}} Bounds\+::intersects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classBounds}{Bounds}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Check if this bounding box intersects another. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Other bounding box \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if boxes overlap 
+\end{DoxyReturn}
+\Hypertarget{classBounds_ac44bea217420f57e9c93cb0de7962de9}\label{classBounds_ac44bea217420f57e9c93cb0de7962de9} 
+\index{Bounds@{Bounds}!set\_bounds@{set\_bounds}}
+\index{set\_bounds@{set\_bounds}!Bounds@{Bounds}}
+\doxysubsubsection{\texorpdfstring{set\_bounds()}{set\_bounds()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} Bounds\+::set\+\_\+bounds (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{\+\_\+xmin,  }\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{\+\_\+ymin,  }\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{\+\_\+width,  }\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{\+\_\+height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set bounding box dimensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+xmin} & Left edge x-\/coordinate \\
+\hline
+{\em \+\_\+ymin} & Bottom edge y-\/coordinate \\
+\hline
+{\em \+\_\+width} & Width of box \\
+\hline
+{\em \+\_\+height} & Height of box \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{bounds_8h}{bounds.\+h}}\end{DoxyCompactItemize}
