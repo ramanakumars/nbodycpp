@@ -1,0 +1,189 @@
+\doxysection{quadtree.\+h}
+\hypertarget{quadtree_8h_source}{}\label{quadtree_8h_source}\index{include/quadtree.h@{include/quadtree.h}}
+\mbox{\hyperlink{quadtree_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{global_8h}{global.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bounds_8h}{bounds.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ MAX\_CAPACITY\ 50}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ MAX\_DEPTH\ 15}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classQuadTree}{QuadTree}}\ \{}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classBounds}{Bounds}}\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classQuadTree_a2c30a5b1435a2bdec4a7e5d6a344d6d8}{totalMass}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classQuadTree_a8a1d6efbdd0e1d569bbbb2c0d5e824fa}{thetaScale}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvector2D}{vector2D}}\ \mbox{\hyperlink{classQuadTree_abd9e7e3082ac3e5cd0e3f69b2d86851a}{centerOfMass}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classQuadTree_a4827344477d54c6faf870c570764f1b6}{depth}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classQuadTree_a9857befbf4e33112f46b647d0c3fcf18}{is\_divided}}\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ std::vector<std::shared\_ptr<T>>\ \mbox{\hyperlink{classQuadTree_af999d9d76f629833b72c4d9002baed0c}{particles}};\ }
+\DoxyCodeLine{00052\ \ \ \ \ std::array<QuadTree<T>\ *,\ 4>\ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}};\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classQuadTree}{QuadTree<T>}}\ *\mbox{\hyperlink{classQuadTree_a988ed540a1c5f010089b94689d92c123}{parent}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{QuadTree}}(\textcolor{keywordtype}{double}\ xmin,\ \textcolor{keywordtype}{double}\ ymin,\ \textcolor{keywordtype}{double}\ width,\ \textcolor{keywordtype}{double}\ height,\ \textcolor{keywordtype}{int}\ \_depth,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree}{QuadTree}}\ *\_parent)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_ac44bea217420f57e9c93cb0de7962de9}{set\_bounds}}(xmin,\ ymin,\ width,\ height);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a4827344477d54c6faf870c570764f1b6}{depth}}\ =\ \_depth;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_af999d9d76f629833b72c4d9002baed0c}{particles}}.reserve(\mbox{\hyperlink{quadtree_8h_abc29155cbf8d3ba92a8cb487bbabdc66}{MAX\_CAPACITY}});}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a2c30a5b1435a2bdec4a7e5d6a344d6d8}{totalMass}}\ =\ 0;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a8a1d6efbdd0e1d569bbbb2c0d5e824fa}{thetaScale}}\ =\ 0;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a988ed540a1c5f010089b94689d92c123}{parent}}\ =\ \_parent;}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classQuadTree_add32fe53d438ff2f5639e1157e5fc380}{insert}}(std::shared\_ptr<T>\ particle)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_a8b2a4a5468b5f7244bd4cd7a4deb971f}{contains}}(particle-\/>position))}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((\mbox{\hyperlink{classQuadTree_af999d9d76f629833b72c4d9002baed0c}{particles}}.size()\ <\ \mbox{\hyperlink{quadtree_8h_abc29155cbf8d3ba92a8cb487bbabdc66}{MAX\_CAPACITY}})\ \&\&\ (!\mbox{\hyperlink{classQuadTree_a9857befbf4e33112f46b647d0c3fcf18}{is\_divided}}))\ ||\ (\mbox{\hyperlink{classQuadTree_a4827344477d54c6faf870c570764f1b6}{depth}}\ ==\ \mbox{\hyperlink{quadtree_8h_a5db49eeef5c9bb774f02996f684df238}{MAX\_DEPTH}}))\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_af999d9d76f629833b72c4d9002baed0c}{particles}}.emplace\_back(particle);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classQuadTree_a9857befbf4e33112f46b647d0c3fcf18}{is\_divided}})\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a9e8008b01e889c9044cfa8fd9e132dab}{subdivide}}();}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&child\ :\ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}})\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (child-\/>insert(particle))\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classQuadTree_a318db904eceac666f884d739fa463df6}{query\_tree}}(\mbox{\hyperlink{classBounds}{Bounds}}\ query\_bounds,\ \mbox{\hyperlink{classQuadTree}{QuadTree<T>}}\ *\&\mbox{\hyperlink{classQuadTree_a318db904eceac666f884d739fa463df6}{query\_tree}})\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>bounds.\mbox{\hyperlink{classBounds_ae28edd9070500b07e5bf852bfa815106}{intersects}}(query\_bounds))}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classQuadTree_a9857befbf4e33112f46b647d0c3fcf18}{is\_divided}})\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ \&child\ :\ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}})\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ child-\/>query\_tree(query\_bounds,\ \mbox{\hyperlink{classQuadTree_a318db904eceac666f884d739fa463df6}{query\_tree}});}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a318db904eceac666f884d739fa463df6}{query\_tree}}\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classQuadTree_a6dcb95c86b3033fd1a04e78e3328755d}{query}}(\mbox{\hyperlink{classBounds}{Bounds}}\ query\_bounds,\ std::vector<T\ *>\ \&query\_particles)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>bounds.\mbox{\hyperlink{classBounds_ae28edd9070500b07e5bf852bfa815106}{intersects}}(query\_bounds))}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classQuadTree_a9857befbf4e33112f46b647d0c3fcf18}{is\_divided}})\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ \&child\ :\ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}})\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ child-\/>query(query\_bounds,\ query\_particles);}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&particle\ :\ this-\/>\mbox{\hyperlink{classQuadTree_af999d9d76f629833b72c4d9002baed0c}{particles}})\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (query\_bounds.\mbox{\hyperlink{classBounds_a8b2a4a5468b5f7244bd4cd7a4deb971f}{contains}}(particle-\/>position))\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ query\_particles.emplace\_back(particle.get());}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classQuadTree_a32684b9c429447abcabea2e14a8bad4a}{merge}}()\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classQuadTree_a9857befbf4e33112f46b647d0c3fcf18}{is\_divided}})}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Only\ merge\ if\ all\ children\ are\ leaf\ nodes}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&child\ :\ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}})\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (child-\/>is\_divided)}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&child\ :\ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}})\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ std::move(child-\/>particles.begin(),\ child-\/>particles.end(),}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::back\_inserter(this-\/>particles));}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ child;}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ this-\/>is\_divided\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classQuadTree_a81f19d79f041e05b52fccef9b008ef91}{calculateCOM}}()\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_abd9e7e3082ac3e5cd0e3f69b2d86851a}{centerOfMass}}\ =\ \{0,\ 0\};}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a2c30a5b1435a2bdec4a7e5d6a344d6d8}{totalMass}}\ =\ 0;}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classQuadTree_a9857befbf4e33112f46b647d0c3fcf18}{is\_divided}})\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&child\ :\ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}})\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ child-\/>calculateCOM();}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a2c30a5b1435a2bdec4a7e5d6a344d6d8}{totalMass}}\ +=\ child-\/>totalMass;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_abd9e7e3082ac3e5cd0e3f69b2d86851a}{centerOfMass}}\ +=\ (child-\/>centerOfMass\ *\ child-\/>totalMass);}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_abd9e7e3082ac3e5cd0e3f69b2d86851a}{centerOfMass}}\ /=\ \mbox{\hyperlink{classQuadTree_a2c30a5b1435a2bdec4a7e5d6a344d6d8}{totalMass}};}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&particle\ :\ \mbox{\hyperlink{classQuadTree_af999d9d76f629833b72c4d9002baed0c}{particles}})\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_abd9e7e3082ac3e5cd0e3f69b2d86851a}{centerOfMass}}\ =\ (\mbox{\hyperlink{classQuadTree_abd9e7e3082ac3e5cd0e3f69b2d86851a}{centerOfMass}}\ *\ \mbox{\hyperlink{classQuadTree_a2c30a5b1435a2bdec4a7e5d6a344d6d8}{totalMass}}\ +\ particle-\/>position\ *\ particle-\/>mass)\ /}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{classQuadTree_a2c30a5b1435a2bdec4a7e5d6a344d6d8}{totalMass}}\ +\ particle-\/>mass);}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a2c30a5b1435a2bdec4a7e5d6a344d6d8}{totalMass}}\ +=\ particle-\/>mass;}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a8a1d6efbdd0e1d569bbbb2c0d5e824fa}{thetaScale}}\ =\ std::pow(\mbox{\hyperlink{global_8h_a1e10697aea98f3d7a938de8fa318c50e}{MASS\_REF}}\ /\ \mbox{\hyperlink{classQuadTree_a2c30a5b1435a2bdec4a7e5d6a344d6d8}{totalMass}},\ \mbox{\hyperlink{global_8h_a29874299171f0e96c480b139d19adef4}{ALPHA}});}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classQuadTree_a5bea5ab32f02ad51abd73b48e4ad9283}{mergeIfNeeded}}()\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classQuadTree_a9857befbf4e33112f46b647d0c3fcf18}{is\_divided}})}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ total\_particles\ =\ 0;}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&child\ :\ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}})\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ total\_particles\ +=\ child-\/>particles.size();}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (child-\/>is\_divided)}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ At\ least\ one\ child\ still\ subdivided\ →\ don't\ merge}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (total\_particles\ <\ \mbox{\hyperlink{quadtree_8h_abc29155cbf8d3ba92a8cb487bbabdc66}{MAX\_CAPACITY}})}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a32684b9c429447abcabea2e14a8bad4a}{merge}}();}
+\DoxyCodeLine{00238\ \ \ \ \ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classQuadTree_a8801d608ed468b78db0c943607bb55c2}{updateParticles}}(std::vector<std::shared\_ptr<T>>\ \&particlesToRemove)\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classQuadTree_a9857befbf4e33112f46b647d0c3fcf18}{is\_divided}})\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ \&child\ :\ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}})\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ child-\/>updateParticles(particlesToRemove);}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a5bea5ab32f02ad51abd73b48e4ad9283}{mergeIfNeeded}}();}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{classQuadTree_af999d9d76f629833b72c4d9002baed0c}{particles}}.begin();\ it\ !=\ \mbox{\hyperlink{classQuadTree_af999d9d76f629833b72c4d9002baed0c}{particles}}.end();)\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_a8b2a4a5468b5f7244bd4cd7a4deb971f}{contains}}((*it)-\/>position))\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ particlesToRemove.emplace\_back(*it);}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ it\ =\ \mbox{\hyperlink{classQuadTree_af999d9d76f629833b72c4d9002baed0c}{particles}}.erase(it);}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ \ \ \ \ \}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classQuadTree_a9e8008b01e889c9044cfa8fd9e132dab}{subdivide}}()\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}}[0]\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classQuadTree}{QuadTree<T>}}(\mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_adfe232e2121be69f215e49baf0a92d16}{xmin}},\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_aa9e8ec0549dd15e753b93d4421b6ecfb}{ymin}}\ +\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_aacb7eba25c41f80b0dcf43c4085600e7}{height}}\ /\ 2,}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_a0ffb236825a411158cc5c8d007fd65b6}{width}}\ /\ 2,\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_aacb7eba25c41f80b0dcf43c4085600e7}{height}}\ /\ 2,\ \mbox{\hyperlink{classQuadTree_a4827344477d54c6faf870c570764f1b6}{depth}}\ +\ 1,\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}}[1]\ =}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{classQuadTree}{QuadTree<T>}}(\mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_adfe232e2121be69f215e49baf0a92d16}{xmin}}\ +\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_a0ffb236825a411158cc5c8d007fd65b6}{width}}\ /\ 2,\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_aa9e8ec0549dd15e753b93d4421b6ecfb}{ymin}}\ +\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_aacb7eba25c41f80b0dcf43c4085600e7}{height}}\ /\ 2,}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_a0ffb236825a411158cc5c8d007fd65b6}{width}}\ /\ 2,\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_aacb7eba25c41f80b0dcf43c4085600e7}{height}}\ /\ 2,\ \mbox{\hyperlink{classQuadTree_a4827344477d54c6faf870c570764f1b6}{depth}}\ +\ 1,\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}}[2]\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classQuadTree}{QuadTree<T>}}(\mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_adfe232e2121be69f215e49baf0a92d16}{xmin}},\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_aa9e8ec0549dd15e753b93d4421b6ecfb}{ymin}},\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_a0ffb236825a411158cc5c8d007fd65b6}{width}}\ /\ 2,\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_aacb7eba25c41f80b0dcf43c4085600e7}{height}}\ /\ 2,}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a4827344477d54c6faf870c570764f1b6}{depth}}\ +\ 1,\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}}[3]\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classQuadTree}{QuadTree<T>}}(\mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_adfe232e2121be69f215e49baf0a92d16}{xmin}}\ +\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_a0ffb236825a411158cc5c8d007fd65b6}{width}}\ /\ 2,\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_aa9e8ec0549dd15e753b93d4421b6ecfb}{ymin}},\ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_a0ffb236825a411158cc5c8d007fd65b6}{width}}\ /\ 2,}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_ae5daaf8e0862e7b74192c9af63696101}{bounds}}.\mbox{\hyperlink{classBounds_aacb7eba25c41f80b0dcf43c4085600e7}{height}}\ /\ 2,\ \mbox{\hyperlink{classQuadTree_a4827344477d54c6faf870c570764f1b6}{depth}}\ +\ 1,\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree_a9857befbf4e33112f46b647d0c3fcf18}{is\_divided}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \mbox{\hyperlink{classQuadTree}{it}}\ =\ \mbox{\hyperlink{classQuadTree_af999d9d76f629833b72c4d9002baed0c}{particles}}.begin();\ \mbox{\hyperlink{classQuadTree}{it}}\ !=\ \mbox{\hyperlink{classQuadTree_af999d9d76f629833b72c4d9002baed0c}{particles}}.end();)\ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classQuadTree}{inserted}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&\mbox{\hyperlink{classQuadTree}{child}}\ :\ \mbox{\hyperlink{classQuadTree_a095c4645fc1d00d1f38cbc18c1b8079e}{children}})\ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classQuadTree}{child}}-\/>\mbox{\hyperlink{classQuadTree_add32fe53d438ff2f5639e1157e5fc380}{insert}}(*\mbox{\hyperlink{classQuadTree}{it}}))\ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree}{inserted}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classQuadTree}{inserted}})\ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classQuadTree}{it}}\ =\ \mbox{\hyperlink{classQuadTree_af999d9d76f629833b72c4d9002baed0c}{particles}}.erase(\mbox{\hyperlink{classQuadTree}{it}});}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classQuadTree}{it}};}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00311\ \ \ \ \ \}}
+\DoxyCodeLine{00312\ \};}
+
+\end{DoxyCode}

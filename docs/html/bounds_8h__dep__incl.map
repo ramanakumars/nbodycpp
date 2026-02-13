@@ -1,0 +1,45 @@
+<map id="include/bounds.h" name="include/bounds.h">
+<area shape="rect" id="Node000001" title="Axis&#45;aligned bounding box for spatial queries." alt="" coords="721,5,853,31"/>
+<area shape="rect" id="Node000002" href="$particle_8h.html" title="Particle class for N&#45;body simulation." alt="" coords="557,79,691,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="749,39,652,81,650,76,747,34"/>
+<area shape="rect" id="Node000013" href="$render_8h.html" title="Graphics rendering for N&#45;body simulation." alt="" coords="822,225,949,251"/>
+<area shape="poly" id="edge27_Node000001_Node000013" title=" " alt="" coords="824,36,849,54,871,77,882,96,889,116,895,158,894,197,890,225,885,225,889,196,890,158,884,117,877,98,867,80,846,58,821,40"/>
+<area shape="rect" id="Node000016" href="$quadtree_8h.html" title="QuadTree spatial data structure for Barnes&#45;Hut algorithm." alt="" coords="715,79,858,104"/>
+<area shape="poly" id="edge21_Node000001_Node000016" title=" " alt="" coords="789,44,789,79,784,79,784,44"/>
+<area shape="rect" id="Node000003" href="$barneshut_8h.html" title="Barnes&#45;Hut algorithm for hierarchical N&#45;body force calculation." alt="" coords="315,152,466,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="574,110,429,154,428,149,573,105"/>
+<area shape="rect" id="Node000011" href="$hermite_8h.html" title="Hermite 4th order predictor&#45;corrector integrator for N&#45;body simulations." alt="" coords="491,152,627,177"/>
+<area shape="poly" id="edge12_Node000002_Node000011" title=" " alt="" coords="606,116,571,154,567,150,602,113"/>
+<area shape="rect" id="Node000012" href="$interactions_8h.html" title="Particle interactions including integration and collision handling." alt="" coords="651,152,813,177"/>
+<area shape="poly" id="edge15_Node000002_Node000012" title=" " alt="" coords="654,109,716,150,713,154,651,114"/>
+<area shape="poly" id="edge20_Node000002_Node000013" title=" " alt="" coords="690,105,769,126,803,138,827,150,846,167,862,187,882,224,878,226,857,190,842,171,824,154,801,143,767,131,689,110"/>
+<area shape="rect" id="Node000004" href="$RK2_8h.html" title="Second&#45;order Runge&#45;Kutta (RK2) integrator." alt="" coords="46,225,157,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="332,183,149,228,148,223,330,178"/>
+<area shape="rect" id="Node000005" href="$RK2_8cpp.html" title="Implementation of second&#45;order Runge&#45;Kutta integrator." alt="" coords="5,299,104,324"/>
+<area shape="poly" id="edge9_Node000003_Node000005" title=" " alt="" coords="302,171,225,176,145,186,77,203,52,214,35,227,29,243,31,262,48,297,43,299,26,264,23,243,31,224,49,209,75,198,144,181,224,171,301,165"/>
+<area shape="rect" id="Node000007" href="$yoshida_8h.html" title="Yoshida 4th order symplectic integrator." alt="" coords="181,225,317,251"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="357,186,274,227,271,223,355,181"/>
+<area shape="rect" id="Node000009" href="$barneshut_8cpp.html" title="Implementation of Barnes&#45;Hut hierarchical force calculation." alt="" coords="342,225,479,251"/>
+<area shape="poly" id="edge10_Node000003_Node000009" title=" " alt="" coords="400,190,410,224,405,226,395,191"/>
+<area shape="rect" id="Node000010" href="$hermite_8cpp.html" title="Implementation of Hermite 4th order predictor&#45;corrector integrator." alt="" coords="504,225,627,251"/>
+<area shape="poly" id="edge11_Node000003_Node000010" title=" " alt="" coords="432,180,538,223,536,228,430,185"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="88,264,64,300,60,297,84,261"/>
+<area shape="rect" id="Node000006" href="$interactions_8cpp.html" title="Implementation of particle interactions and collision handling." alt="" coords="463,299,612,324"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="171,248,467,296,466,301,170,253"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="309,251,491,296,490,301,308,257"/>
+<area shape="rect" id="Node000008" href="$yoshida_8cpp.html" title="Implementation of Yoshida 4th order symplectic integrator." alt="" coords="188,299,311,324"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="252,264,252,299,247,299,247,264"/>
+<area shape="poly" id="edge14_Node000011_Node000006" title=" " alt="" coords="597,182,618,195,635,212,645,231,641,252,628,269,612,282,576,301,574,296,609,278,624,265,636,250,640,232,631,215,615,199,594,186"/>
+<area shape="poly" id="edge13_Node000011_Node000010" title=" " alt="" coords="564,191,567,225,562,225,558,191"/>
+<area shape="poly" id="edge19_Node000012_Node000006" title=" " alt="" coords="718,191,694,222,662,253,615,281,571,301,569,296,613,277,658,249,690,219,714,188"/>
+<area shape="poly" id="edge16_Node000012_Node000013" title=" " alt="" coords="770,181,861,223,859,228,768,185"/>
+<area shape="rect" id="Node000014" href="$main_8cpp.html" title="N&#45;body simulation of planetary system with 100k test particles." alt="" coords="950,299,1055,324"/>
+<area shape="poly" id="edge17_Node000013_Node000014" title=" " alt="" coords="917,255,985,296,982,301,915,260"/>
+<area shape="rect" id="Node000015" href="$render_8cpp.html" title="Implementation of SFML&#45;based rendering for N&#45;body simulation." alt="" coords="813,299,926,324"/>
+<area shape="poly" id="edge18_Node000013_Node000015" title=" " alt="" coords="882,265,875,299,869,298,877,263"/>
+<area shape="poly" id="edge22_Node000016_Node000003" title=" " alt="" coords="710,109,455,155,454,149,709,104"/>
+<area shape="poly" id="edge23_Node000016_Node000011" title=" " alt="" coords="738,111,596,154,595,149,736,106"/>
+<area shape="poly" id="edge24_Node000016_Node000012" title=" " alt="" coords="771,117,743,154,739,150,767,113"/>
+<area shape="poly" id="edge25_Node000016_Node000013" title=" " alt="" coords="825,108,850,126,872,151,881,170,886,190,888,225,883,225,880,191,876,172,867,153,847,130,822,113"/>
+<area shape="poly" id="edge26_Node000016_Node000014" title=" " alt="" coords="825,108,859,127,894,150,932,183,964,224,986,263,1001,297,996,300,981,266,959,227,928,187,890,154,857,131,823,113"/>
+</map>

@@ -1,0 +1,109 @@
+\doxysection{Particle Class Reference}
+\hypertarget{classParticle}{}\label{classParticle}\index{Particle@{Particle}}
+
+
+Represents a particle in the N-\/body simulation.  
+
+
+
+
+{\ttfamily \#include $<$particle.\+h$>$}
+
+
+
+Collaboration diagram for Particle\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classParticle__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classParticle_ab5010f11ba90013d38cc7ee8815dbe93}{Particle}} (\mbox{\hyperlink{classQuadTree}{double}} x, \mbox{\hyperlink{classQuadTree}{double}} y, \mbox{\hyperlink{classQuadTree}{double}} \mbox{\hyperlink{classQuadTree}{vx}}, \mbox{\hyperlink{classQuadTree}{double}} \mbox{\hyperlink{classQuadTree}{vy}}, \mbox{\hyperlink{classQuadTree}{int}} \mbox{\hyperlink{classParticle_a544b202775517f8ba05efcb9e0a21bee}{id}}, \mbox{\hyperlink{classQuadTree}{bool}} \mbox{\hyperlink{classParticle_af8d6fa8d4ebea52bcec421751f3129e9}{is\+Primary}})
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classParticle}{Particle}. \end{DoxyCompactList}\item 
+\Hypertarget{classParticle_ae781e89bf59b1758989829fc41d82b4a}\label{classParticle_ae781e89bf59b1758989829fc41d82b4a} 
+{\bfseries Particle} (\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classParticle}{Particle}} \&\mbox{\hyperlink{classQuadTree}{other}})=\mbox{\hyperlink{classQuadTree}{default}}
+\begin{DoxyCompactList}\small\item\em Default copy constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classParticle_a16f908ddf638d4be8acab6d172f1dbbf}\label{classParticle_a16f908ddf638d4be8acab6d172f1dbbf} 
+\mbox{\hyperlink{classvector2D}{vector2D}} {\bfseries position}
+\begin{DoxyCompactList}\small\item\em Current position (x, y) \end{DoxyCompactList}\item 
+\Hypertarget{classParticle_a008248b23ca9a2dde7a355dc0027a326}\label{classParticle_a008248b23ca9a2dde7a355dc0027a326} 
+\mbox{\hyperlink{classvector2D}{vector2D}} {\bfseries velocity}
+\begin{DoxyCompactList}\small\item\em Current velocity (vx, vy) \end{DoxyCompactList}\item 
+\Hypertarget{classParticle_a9f369ccf3e9c106dc477eaa8adf6192f}\label{classParticle_a9f369ccf3e9c106dc477eaa8adf6192f} 
+\mbox{\hyperlink{classvector2D}{vector2D}} {\bfseries acceleration}
+\begin{DoxyCompactList}\small\item\em Current acceleration (ax, ay) \end{DoxyCompactList}\item 
+\Hypertarget{classParticle_a3f290aaa325b4b91e1d6f2200f84cd7e}\label{classParticle_a3f290aaa325b4b91e1d6f2200f84cd7e} 
+\mbox{\hyperlink{classvector2D}{vector2D}} {\bfseries jerk}
+\begin{DoxyCompactList}\small\item\em Time derivative of acceleration (for Hermite integrator) \end{DoxyCompactList}\item 
+\Hypertarget{classParticle_a544b202775517f8ba05efcb9e0a21bee}\label{classParticle_a544b202775517f8ba05efcb9e0a21bee} 
+\mbox{\hyperlink{classQuadTree}{int}} {\bfseries id}
+\begin{DoxyCompactList}\small\item\em Unique particle identifier. \end{DoxyCompactList}\item 
+\Hypertarget{classParticle_ae6d46dc24a6666d526f211151fecca5f}\label{classParticle_ae6d46dc24a6666d526f211151fecca5f} 
+\mbox{\hyperlink{classQuadTree}{double}} {\bfseries mass}
+\begin{DoxyCompactList}\small\item\em \doxylink{classParticle}{Particle} mass. \end{DoxyCompactList}\item 
+\Hypertarget{classParticle_adc6912ad900f3d4724d7f310f8eae3d5}\label{classParticle_adc6912ad900f3d4724d7f310f8eae3d5} 
+\mbox{\hyperlink{classQuadTree}{double}} {\bfseries radius}
+\begin{DoxyCompactList}\small\item\em \doxylink{classParticle}{Particle} radius (for collisions and softening) \end{DoxyCompactList}\item 
+\Hypertarget{classParticle_af8d6fa8d4ebea52bcec421751f3129e9}\label{classParticle_af8d6fa8d4ebea52bcec421751f3129e9} 
+\mbox{\hyperlink{classQuadTree}{bool}} {\bfseries is\+Primary} = \mbox{\hyperlink{classQuadTree}{false}}
+\begin{DoxyCompactList}\small\item\em True if particle should be rendered specially. \end{DoxyCompactList}\item 
+\Hypertarget{classParticle_a358f3fa97f810449be07db081aeed19d}\label{classParticle_a358f3fa97f810449be07db081aeed19d} 
+\mbox{\hyperlink{classQuadTree}{bool}} {\bfseries mark\+For\+Deletion} = \mbox{\hyperlink{classQuadTree}{false}}
+\begin{DoxyCompactList}\small\item\em True if particle should be removed (merged) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Predictor variables}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classParticle_a65b5c9927f0ceb1c35a4db9e95369056}\label{classParticle_a65b5c9927f0ceb1c35a4db9e95369056} 
+\mbox{\hyperlink{classvector2D}{vector2D}} {\bfseries position\+\_\+pred}
+\begin{DoxyCompactList}\small\item\em Predicted position (Hermite predictor step) \end{DoxyCompactList}\item 
+\Hypertarget{classParticle_a947a99cb02a3098a475bde4ee7b72f76}\label{classParticle_a947a99cb02a3098a475bde4ee7b72f76} 
+\mbox{\hyperlink{classvector2D}{vector2D}} {\bfseries velocity\+\_\+pred}
+\begin{DoxyCompactList}\small\item\em Predicted velocity (Hermite predictor step) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Represents a particle in the N-\/body simulation. 
+
+Stores kinematic state (position, velocity, acceleration, jerk) and physical properties (mass, radius) for gravitational N-\/body integration. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classParticle_ab5010f11ba90013d38cc7ee8815dbe93}\label{classParticle_ab5010f11ba90013d38cc7ee8815dbe93} 
+\index{Particle@{Particle}!Particle@{Particle}}
+\index{Particle@{Particle}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{Particle()}{Particle()}}
+{\footnotesize\ttfamily Particle\+::\+Particle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{x,  }\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{y,  }\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{vx,  }\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{vy,  }\item[{\mbox{\hyperlink{classQuadTree}{int}}}]{id,  }\item[{\mbox{\hyperlink{classQuadTree}{bool}}}]{is\+Primary }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \doxylink{classParticle}{Particle}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Initial x position \\
+\hline
+{\em y} & Initial y position \\
+\hline
+{\em vx} & Initial x velocity \\
+\hline
+{\em vy} & Initial y velocity \\
+\hline
+{\em id} & Unique particle identifier \\
+\hline
+{\em is\+Primary} & Whether this is a primary particle (for rendering)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Acceleration and jerk are initialized to zero 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{particle_8h}{particle.\+h}}\end{DoxyCompactItemize}

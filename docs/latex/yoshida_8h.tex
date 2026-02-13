@@ -1,0 +1,158 @@
+\doxysection{include/yoshida.h File Reference}
+\hypertarget{yoshida_8h}{}\label{yoshida_8h}\index{include/yoshida.h@{include/yoshida.h}}
+
+
+Yoshida 4th order symplectic integrator.  
+
+
+{\ttfamily \#include "{}global.\+h"{}}\newline
+{\ttfamily \#include "{}barneshut.\+h"{}}\newline
+Include dependency graph for yoshida.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{yoshida_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{yoshida_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{yoshida_8h_af6acf52885dab1a8cd2b946a332e3043}{drift}} (\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \&, \mbox{\hyperlink{classQuadTree}{double}})
+\begin{DoxyCompactList}\small\item\em Drift step\+: update positions using current velocities. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{yoshida_8h_a0a76e4aee070737822a9818b703ff584}{kick}} (\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \&, \mbox{\hyperlink{classQuadTree}{double}})
+\begin{DoxyCompactList}\small\item\em Kick step\+: update velocities using current accelerations. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{yoshida_8h_a54d2dd2f03a97e82236e5499f12ad04b}{yoshida\+Step}} (\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&, \mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{classQuadTree}{double}})
+\begin{DoxyCompactList}\small\item\em Perform one timestep using Yoshida 4th order symplectic method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{Indent}\textbf{ Yoshida coefficients}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{yoshida_8h_a4088c31414435cc3ae33862b24dab47b}\label{yoshida_8h_a4088c31414435cc3ae33862b24dab47b} 
+\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries w0} = -\/\mbox{\hyperlink{classQuadTree}{pow}}(2.\+0, 1.\+0 / 3.\+0) / (2.\+0 -\/ \mbox{\hyperlink{classQuadTree}{pow}}(2.\+0, 1.\+0 / 3.\+0))
+\begin{DoxyCompactList}\small\item\em Weight 0. \end{DoxyCompactList}\item 
+\Hypertarget{yoshida_8h_ad79f685408a628c34e6c0389d013e8c9}\label{yoshida_8h_ad79f685408a628c34e6c0389d013e8c9} 
+\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries w1} = 1.\+0 / (2.\+0 -\/ \mbox{\hyperlink{classQuadTree}{pow}}(2.\+0, 1.\+0 / 3.\+0))
+\begin{DoxyCompactList}\small\item\em Weight 1. \end{DoxyCompactList}\item 
+\Hypertarget{yoshida_8h_a3800b4c89b0f78f7e8c9b96534f98b52}\label{yoshida_8h_a3800b4c89b0f78f7e8c9b96534f98b52} 
+\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries c1} = \mbox{\hyperlink{yoshida_8h_ad79f685408a628c34e6c0389d013e8c9}{w1}} / 2.\+0
+\begin{DoxyCompactList}\small\item\em Drift coefficient 1. \end{DoxyCompactList}\item 
+\Hypertarget{yoshida_8h_abcf46f6ce4661ff8de72c4f95026a1c6}\label{yoshida_8h_abcf46f6ce4661ff8de72c4f95026a1c6} 
+\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries c2} = (\mbox{\hyperlink{yoshida_8h_a4088c31414435cc3ae33862b24dab47b}{w0}} + \mbox{\hyperlink{yoshida_8h_ad79f685408a628c34e6c0389d013e8c9}{w1}}) / 2.\+0
+\begin{DoxyCompactList}\small\item\em Drift coefficient 2. \end{DoxyCompactList}\item 
+\Hypertarget{yoshida_8h_a6f1572d06172ab1a7eb50e47725f94b6}\label{yoshida_8h_a6f1572d06172ab1a7eb50e47725f94b6} 
+\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries c3} = \mbox{\hyperlink{yoshida_8h_abcf46f6ce4661ff8de72c4f95026a1c6}{c2}}
+\begin{DoxyCompactList}\small\item\em Drift coefficient 3. \end{DoxyCompactList}\item 
+\Hypertarget{yoshida_8h_a5f5809b2c1b216c86cfb5de0e85303c3}\label{yoshida_8h_a5f5809b2c1b216c86cfb5de0e85303c3} 
+\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries c4} = \mbox{\hyperlink{yoshida_8h_a3800b4c89b0f78f7e8c9b96534f98b52}{c1}}
+\begin{DoxyCompactList}\small\item\em Drift coefficient 4. \end{DoxyCompactList}\item 
+\Hypertarget{yoshida_8h_a92da0085219eb1150d80f17b163d73ea}\label{yoshida_8h_a92da0085219eb1150d80f17b163d73ea} 
+\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries d1} = \mbox{\hyperlink{yoshida_8h_ad79f685408a628c34e6c0389d013e8c9}{w1}}
+\begin{DoxyCompactList}\small\item\em Kick coefficient 1. \end{DoxyCompactList}\item 
+\Hypertarget{yoshida_8h_aab3a9b8bd1a9fa68cd1578660f31b70d}\label{yoshida_8h_aab3a9b8bd1a9fa68cd1578660f31b70d} 
+\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries d2} = \mbox{\hyperlink{yoshida_8h_a4088c31414435cc3ae33862b24dab47b}{w0}}
+\begin{DoxyCompactList}\small\item\em Kick coefficient 2. \end{DoxyCompactList}\item 
+\Hypertarget{yoshida_8h_ac6567c34d7f8aa51398c8a7ce3c8c416}\label{yoshida_8h_ac6567c34d7f8aa51398c8a7ce3c8c416} 
+\mbox{\hyperlink{classQuadTree}{const}} \mbox{\hyperlink{classQuadTree}{double}} {\bfseries d3} = \mbox{\hyperlink{yoshida_8h_ad79f685408a628c34e6c0389d013e8c9}{w1}}
+\begin{DoxyCompactList}\small\item\em Kick coefficient 3. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Yoshida 4th order symplectic integrator. 
+
+Implements the Yoshida symplectic integrator, a composition method that achieves 4th order accuracy while preserving the symplectic structure of Hamiltonian systems.
+
+This results in excellent long-\/term energy conservation, making it ideal for orbital dynamics and secular evolution studies.
+
+Reference\+: Yoshida (1990), Physics Letters A, 150, 262 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{yoshida_8h_af6acf52885dab1a8cd2b946a332e3043}\label{yoshida_8h_af6acf52885dab1a8cd2b946a332e3043} 
+\index{yoshida.h@{yoshida.h}!drift@{drift}}
+\index{drift@{drift}!yoshida.h@{yoshida.h}}
+\doxysubsubsection{\texorpdfstring{drift()}{drift()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} drift (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \&}]{,  }\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Drift step\+: update positions using current velocities. 
+
+x\+\_\+new = x\+\_\+old + v \texorpdfstring{$\ast$}{*} dt
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & \doxylink{classParticle}{Particle} vector \\
+\hline
+{\em dt} & Timestep (may be fractional for substeps) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{yoshida_8h_a0a76e4aee070737822a9818b703ff584}\label{yoshida_8h_a0a76e4aee070737822a9818b703ff584} 
+\index{yoshida.h@{yoshida.h}!kick@{kick}}
+\index{kick@{kick}!yoshida.h@{yoshida.h}}
+\doxysubsubsection{\texorpdfstring{kick()}{kick()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} kick (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \&}]{,  }\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Kick step\+: update velocities using current accelerations. 
+
+v\+\_\+new = v\+\_\+old + a \texorpdfstring{$\ast$}{*} dt
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & \doxylink{classParticle}{Particle} vector \\
+\hline
+{\em dt} & Timestep (may be fractional for substeps) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{yoshida_8h_a54d2dd2f03a97e82236e5499f12ad04b}\label{yoshida_8h_a54d2dd2f03a97e82236e5499f12ad04b} 
+\index{yoshida.h@{yoshida.h}!yoshidaStep@{yoshidaStep}}
+\index{yoshidaStep@{yoshidaStep}!yoshida.h@{yoshida.h}}
+\doxysubsubsection{\texorpdfstring{yoshidaStep()}{yoshidaStep()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} yoshida\+Step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&}]{particles,  }\item[{\mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}}]{tree,  }\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{dt }\end{DoxyParamCaption})}
+
+
+
+Perform one timestep using Yoshida 4th order symplectic method. 
+
+Composition of drift-\/kick-\/drift stages with special coefficients\+:
+\begin{DoxyItemize}
+\item Drift(c1\texorpdfstring{$\ast$}{*}dt) → Kick(d1\texorpdfstring{$\ast$}{*}dt) → Drift(c2\texorpdfstring{$\ast$}{*}dt) → ...
+\item Total of 4 drift and 3 kick substeps
+\item Coefficients chosen to cancel error terms up to 4th order
+\end{DoxyItemize}
+
+Properties\+:
+\begin{DoxyItemize}
+\item Symplectic (preserves phase space volume)
+\item Time-\/reversible
+\item 4th order accuracy\+: error \texorpdfstring{$\sim$}{\string~} O(dt⁵)
+\item Excellent long-\/term energy conservation
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & Vector of particles to integrate \\
+\hline
+{\em tree} & \doxylink{classQuadTree}{Quad\+Tree} for Barnes-\/\+Hut force calculation \\
+\hline
+{\em dt} & Timestep size\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Requires 4 force evaluations per step 
+
+Best for long-\/term orbital integration 
+
+May struggle with close encounters
+\end{DoxyNote}
+Perform one timestep using Yoshida 4th order symplectic method.
+
+Performs composition of drift and kick operations with specially chosen coefficients for 4th order accuracy while maintaining symplectic properties. 

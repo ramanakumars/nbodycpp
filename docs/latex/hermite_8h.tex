@@ -1,0 +1,146 @@
+\doxysection{include/hermite.h File Reference}
+\hypertarget{hermite_8h}{}\label{hermite_8h}\index{include/hermite.h@{include/hermite.h}}
+
+
+Hermite 4th order predictor-\/corrector integrator for N-\/body simulations.  
+
+
+{\ttfamily \#include "{}global.\+h"{}}\newline
+{\ttfamily \#include "{}particle.\+h"{}}\newline
+{\ttfamily \#include "{}quadtree.\+h"{}}\newline
+Include dependency graph for hermite.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hermite_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{hermite_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{hermite_8h_a7c612e064cb2cb4ea9e56157f81839ff}{hermite\+Step}} (\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&particles, \mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}tree, \mbox{\hyperlink{classQuadTree}{double}} \mbox{\hyperlink{classQuadTree}{dt}})
+\begin{DoxyCompactList}\small\item\em Performs one timestep using the Hermite 4th order predictor-\/corrector method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{hermite_8h_a733b75759dd130ce95bc3015d292dea7}{get\+Acceleration\+And\+Jerk}} (\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&particles, \mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}tree)
+\begin{DoxyCompactList}\small\item\em Calculates both acceleration and jerk (time derivative of acceleration) for all particles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Hermite 4th order predictor-\/corrector integrator for N-\/body simulations. 
+
+This file implements the Hermite integration scheme, which is widely used in astrophysical N-\/body simulations due to its superior energy conservation and handling of close encounters compared to symplectic integrators.
+
+The Hermite method uses both force (acceleration) and force derivative (jerk) to achieve 4th order accuracy with only 2 force evaluations per timestep. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hermite_8h_a733b75759dd130ce95bc3015d292dea7}\label{hermite_8h_a733b75759dd130ce95bc3015d292dea7} 
+\index{hermite.h@{hermite.h}!getAccelerationAndJerk@{getAccelerationAndJerk}}
+\index{getAccelerationAndJerk@{getAccelerationAndJerk}!hermite.h@{hermite.h}}
+\doxysubsubsection{\texorpdfstring{getAccelerationAndJerk()}{getAccelerationAndJerk()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} get\+Acceleration\+And\+Jerk (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&}]{particles,  }\item[{\mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}}]{tree }\end{DoxyParamCaption})}
+
+
+
+Calculates both acceleration and jerk (time derivative of acceleration) for all particles. 
+
+Uses Barnes-\/\+Hut algorithm for O(\+N log N) complexity. The jerk is calculated as the time derivative of gravitational acceleration\+:
+
+For particle pair\+: da/dt = -\/G\texorpdfstring{$\ast$}{*}m \texorpdfstring{$\ast$}{*} \mbox{[}v/r³ -\/ 3\texorpdfstring{$\ast$}{*}(r·v)\texorpdfstring{$\ast$}{*}r/r⁵\mbox{]}
+
+where r is position difference and v is velocity difference.
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & Vector of particles \\
+\hline
+{\em tree} & \doxylink{classQuadTree}{Quad\+Tree} for hierarchical force calculation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function zeros acceleration and jerk before calculation 
+
+Parallelized with Open\+MP 
+\end{DoxyNote}
+\Hypertarget{hermite_8h_a7c612e064cb2cb4ea9e56157f81839ff}\label{hermite_8h_a7c612e064cb2cb4ea9e56157f81839ff} 
+\index{hermite.h@{hermite.h}!hermiteStep@{hermiteStep}}
+\index{hermiteStep@{hermiteStep}!hermite.h@{hermite.h}}
+\doxysubsubsection{\texorpdfstring{hermiteStep()}{hermiteStep()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} hermite\+Step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&}]{particles,  }\item[{\mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}}]{tree,  }\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{dt }\end{DoxyParamCaption})}
+
+
+
+Performs one timestep using the Hermite 4th order predictor-\/corrector method. 
+
+The Hermite integrator consists of three stages\+:
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Predictor}}\+: Predicts positions and velocities at t+dt using Taylor expansion\+:
+\begin{DoxyItemize}
+\item x\+\_\+pred = x + v\texorpdfstring{$\ast$}{*}dt + (1/2)\texorpdfstring{$\ast$}{*}a\texorpdfstring{$\ast$}{*}dt² + (1/6)\texorpdfstring{$\ast$}{*}jerk\texorpdfstring{$\ast$}{*}dt³
+\item v\+\_\+pred = v + a\texorpdfstring{$\ast$}{*}dt + (1/2)\texorpdfstring{$\ast$}{*}jerk\texorpdfstring{$\ast$}{*}dt²
+\end{DoxyItemize}
+\item {\bfseries{Evaluator}}\+: Calculates forces and jerks at predicted positions
+\item {\bfseries{Corrector}}\+: Corrects positions/velocities using average of old and new derivatives\+:
+\begin{DoxyItemize}
+\item v\+\_\+new = v\+\_\+old + (a0 + a1)\texorpdfstring{$\ast$}{*}dt/2 + (jerk0 -\/ jerk1)\texorpdfstring{$\ast$}{*}dt²/12
+\item x\+\_\+new = x\+\_\+old + (v\+\_\+old + v\+\_\+new)\texorpdfstring{$\ast$}{*}dt/2 + (a0 -\/ a1)\texorpdfstring{$\ast$}{*}dt²/12
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & Vector of particles to integrate \\
+\hline
+{\em tree} & \doxylink{classQuadTree}{Quad\+Tree} for Barnes-\/\+Hut force calculation \\
+\hline
+{\em dt} & Timestep size\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Requires particles to have jerk field initialized 
+
+More accurate than Yoshida-\/4 for same timestep, with \texorpdfstring{$\sim$}{\string~}2x force evaluations 
+
+Non-\/symplectic but excellent energy conservation in practice
+\end{DoxyNote}
+Performs one timestep using the Hermite 4th order predictor-\/corrector method.
+
+Three-\/stage predictor-\/corrector scheme\+:
+
+{\bfseries{Stage 1 -\/ Predictor\+:}} Extrapolate to t+dt using Taylor series with jerk\+:
+\begin{DoxyItemize}
+\item x\+\_\+p = x + v·dt + ½a·dt² + ⅙j·dt³
+\item v\+\_\+p = v + a·dt + ½j·dt²
+\end{DoxyItemize}
+
+{\bfseries{Stage 2 -\/ Evaluator\+:}} Calculate forces at predicted positions
+
+{\bfseries{Stage 3 -\/ Corrector\+:}} Update using average of old and new derivatives\+:
+\begin{DoxyItemize}
+\item v\+\_\+new = v + ½(a₀+a₁)·dt + 1/12(j₀-\/j₁)·dt²
+\item x\+\_\+new = x + ½(v₀+v₁)·dt + 1/12(a₀-\/a₁)·dt²
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & \doxylink{classParticle}{Particle} array to integrate \\
+\hline
+{\em tree} & \doxylink{classQuadTree}{Quad\+Tree} for force calculation \\
+\hline
+{\em dt} & Timestep size\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Requires particles to have jerk initialized from previous step 
+
+Thread-\/safe with Open\+MP parallelization 
+
+Cost\+: \texorpdfstring{$\sim$}{\string~}2 force evaluations (predictor + corrector) 
+\end{DoxyNote}

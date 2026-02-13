@@ -1,0 +1,47 @@
+\doxysection{src/yoshida.cpp File Reference}
+\hypertarget{yoshida_8cpp}{}\label{yoshida_8cpp}\index{src/yoshida.cpp@{src/yoshida.cpp}}
+
+
+Implementation of Yoshida 4th order symplectic integrator.  
+
+
+{\ttfamily \#include "{}yoshida.\+h"{}}\newline
+Include dependency graph for yoshida.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{yoshida_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{yoshida_8cpp_ac29e4df783f9bfaf1872b698d01a0a10}\label{yoshida_8cpp_ac29e4df783f9bfaf1872b698d01a0a10} 
+\mbox{\hyperlink{classQuadTree}{void}} {\bfseries drift} (\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&particles, \mbox{\hyperlink{classQuadTree}{double}} \mbox{\hyperlink{classQuadTree}{dt}})
+\begin{DoxyCompactList}\small\item\em Drift\+: advance positions by velocity. \end{DoxyCompactList}\item 
+\Hypertarget{yoshida_8cpp_a6e1c2bf124f7fa9d8fe5292131fd272e}\label{yoshida_8cpp_a6e1c2bf124f7fa9d8fe5292131fd272e} 
+\mbox{\hyperlink{classQuadTree}{void}} {\bfseries kick} (\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&particles, \mbox{\hyperlink{classQuadTree}{double}} \mbox{\hyperlink{classQuadTree}{dt}})
+\begin{DoxyCompactList}\small\item\em Kick\+: advance velocities by acceleration. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuadTree}{void}} \mbox{\hyperlink{yoshida_8cpp_a5f1f72dbd4b947f089402fda35a50a5a}{yoshida\+Step}} (\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&particles, \mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}tree, \mbox{\hyperlink{classQuadTree}{double}} \mbox{\hyperlink{classQuadTree}{dt}})
+\begin{DoxyCompactList}\small\item\em Yoshida 4th order integration step. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of Yoshida 4th order symplectic integrator. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{yoshida_8cpp_a5f1f72dbd4b947f089402fda35a50a5a}\label{yoshida_8cpp_a5f1f72dbd4b947f089402fda35a50a5a} 
+\index{yoshida.cpp@{yoshida.cpp}!yoshidaStep@{yoshidaStep}}
+\index{yoshidaStep@{yoshidaStep}!yoshida.cpp@{yoshida.cpp}}
+\doxysubsubsection{\texorpdfstring{yoshidaStep()}{yoshidaStep()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{void}} yoshida\+Step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::vector}}$<$ \mbox{\hyperlink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{std\+::shared\+\_\+ptr}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ $>$ \&}]{particles,  }\item[{\mbox{\hyperlink{classQuadTree}{Quad\+Tree}}$<$ \mbox{\hyperlink{classParticle}{Particle}} $>$ \texorpdfstring{$\ast$}{*}}]{tree,  }\item[{\mbox{\hyperlink{classQuadTree}{double}}}]{dt }\end{DoxyParamCaption})}
+
+
+
+Yoshida 4th order integration step. 
+
+Perform one timestep using Yoshida 4th order symplectic method.
+
+Performs composition of drift and kick operations with specially chosen coefficients for 4th order accuracy while maintaining symplectic properties. 

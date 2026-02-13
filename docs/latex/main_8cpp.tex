@@ -1,0 +1,94 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+N-\/body simulation of planetary system with 100k test particles.  
+
+
+{\ttfamily \#include "{}quadtree.\+h"{}}\newline
+{\ttfamily \#include "{}render.\+h"{}}\newline
+Include dependency graph for main.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8cpp_a10de4c9fbfd6e65bafb515d0bf777dc2}\label{main_8cpp_a10de4c9fbfd6e65bafb515d0bf777dc2} 
+\#\mbox{\hyperlink{classQuadTree}{define}} {\bfseries PRIMARY\+\_\+\+PARTICLE}~\mbox{\hyperlink{classQuadTree}{true}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classParticle}{Particle} rendered as colored circle. \end{DoxyCompactList}\item 
+\Hypertarget{main_8cpp_a6ac41656fb327d1ddbbb0e71d1e313c4}\label{main_8cpp_a6ac41656fb327d1ddbbb0e71d1e313c4} 
+\#\mbox{\hyperlink{classQuadTree}{define}} {\bfseries NOT\+\_\+\+PRIMARY\+\_\+\+PARTICLE}~\mbox{\hyperlink{classQuadTree}{false}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classParticle}{Particle} rendered as point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuadTree}{int}} \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main entry point for N-\/body simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBounds}{Bounds}} \mbox{\hyperlink{main_8cpp_a8ac432d0c7f6c907c1eff22e0b87969d}{global\+\_\+bounds}}
+\begin{DoxyCompactList}\small\item\em Global viewing bounds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+N-\/body simulation of planetary system with 100k test particles. 
+
+Simulates a central star with planets and a debris disk. Uses Barnes-\/\+Hut algorithm with quadtree spatial partitioning for efficient gravity calculation.
+
+System setup\+:
+\begin{DoxyItemize}
+\item 1 central star (mass = \doxylink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{1.\+0})
+\item 5 planets in circular orbits
+\item 100,000 massless test particles (debris disk)
+\end{DoxyItemize}
+
+Integration\+: Hermite 4th order (default), configurable via TRANSPORT\+\_\+\+TYPE Timestep\+: \doxylink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{0.\+01} time units Visualization\+: SFML-\/based real-\/time rendering 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuadTree}{int}} main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main entry point for N-\/body simulation. 
+
+Initialization sequence\+:
+\begin{DoxyEnumerate}
+\item Set random seed for reproducibility
+\item Configure Open\+MP threads
+\item Create \doxylink{classQuadTree}{Quad\+Tree} and initialize bounds
+\item Generate particle system\+:
+\begin{DoxyItemize}
+\item Central star at origin
+\item 5 planets in Keplerian orbits (\doxylink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{0.\+5}-\/6 units radius)
+\item 100k test particles in disk (\doxylink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{0.\+25}\doxylink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{-\/4.\+25} units radius)
+\end{DoxyItemize}
+\item Insert particles into \doxylink{classQuadTree}{Quad\+Tree}
+\item Launch renderer with dt=\doxylink{classQuadTree_a32ecd5218cb8f164aaaf0eaded7064c9}{0.\+01}
+\end{DoxyEnumerate}
+
+\begin{DoxyReturn}{Returns}
+0 on successful completion 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_a8ac432d0c7f6c907c1eff22e0b87969d}\label{main_8cpp_a8ac432d0c7f6c907c1eff22e0b87969d} 
+\index{main.cpp@{main.cpp}!global\_bounds@{global\_bounds}}
+\index{global\_bounds@{global\_bounds}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{global\_bounds}{global\_bounds}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBounds}{Bounds}} global\+\_\+bounds}
+
+
+
+Global viewing bounds. 
+
+Global viewing bounds for rendering. 
