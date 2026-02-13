@@ -1,7 +1,0 @@
-<map id="QuadTree&lt; T &gt;" name="QuadTree&lt; T &gt;">
-<area shape="rect" id="Node000001" title="Hierarchical spatial partitioning tree for 2D N&#45;body simulation." alt="" coords="29,93,151,119"/>
-<area shape="rect" id="Node000002" href="$classBounds.html" title="Axis&#45;aligned rectangular bounding box." alt="" coords="5,5,76,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,43,62,68,80,91,76,95,57,71,45,45"/>
-<area shape="rect" id="Node000003" href="$classvector2D.html" title="Two&#45;dimensional vector for positions, velocities, and accelerations." alt="" coords="100,5,181,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="129,44,114,71,99,94,95,92,109,68,125,41"/>
-</map>

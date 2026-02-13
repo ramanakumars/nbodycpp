@@ -1,7 +1,0 @@
-<map id="include/RK2.h" name="include/RK2.h">
-<area shape="rect" id="Node000001" title="Second&#45;order Runge&#45;Kutta (RK2) integrator." alt="" coords="73,5,183,31"/>
-<area shape="rect" id="Node000002" href="$RK2_8cpp.html" title="Implementation of second&#45;order Runge&#45;Kutta integrator." alt="" coords="5,79,104,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,42,68,80,65,77,104,38"/>
-<area shape="rect" id="Node000003" href="$interactions_8cpp.html" title="Implementation of particle interactions and collision handling." alt="" coords="128,79,277,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,38,192,77,189,80,148,42"/>
-</map>

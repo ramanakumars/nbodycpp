@@ -1,7 +1,0 @@
-<map id="include/hermite.h" name="include/hermite.h">
-<area shape="rect" id="Node000001" title="Hermite 4th order predictor&#45;corrector integrator for N&#45;body simulations." alt="" coords="79,5,215,31"/>
-<area shape="rect" id="Node000002" href="$hermite_8cpp.html" title="Implementation of Hermite 4th order predictor&#45;corrector integrator." alt="" coords="5,79,128,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,42,82,80,78,76,122,38"/>
-<area shape="rect" id="Node000003" href="$interactions_8cpp.html" title="Implementation of particle interactions and collision handling." alt="" coords="152,79,301,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,38,215,76,212,80,168,42"/>
-</map>
